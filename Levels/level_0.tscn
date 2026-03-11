@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://6m40phpgks1p"]
+
+[ext_resource type="PackedScene" uid="uid://e77x46bxhwqh" path="res://Player/player.tscn" id="1_8ryqv"]
+[ext_resource type="Script" uid="uid://cegxak3hard5" path="res://Player/player.gd" id="2_31js7"]
+[ext_resource type="PackedScene" uid="uid://dcdp3cxg6i4n8" path="res://Orbs/red_orb.tscn" id="3_finow"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8ryqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31js7"]
+size = Vector2(881, 69)
+
+[node name="Level0" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_8ryqv")]
+position = Vector2(28, -51)
+script = ExtResource("2_31js7")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-446, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(442.50003, 34.25)
+scale = Vector2(881.00006, 69.5)
+texture = SubResource("PlaceholderTexture2D_8ryqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(441.5, 34.5)
+shape = SubResource("RectangleShape2D_31js7")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1292, 80)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(442.50003, 34.25)
+scale = Vector2(881.00006, 69.5)
+texture = SubResource("PlaceholderTexture2D_8ryqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(441.5, 34.5)
+shape = SubResource("RectangleShape2D_31js7")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(401, 164)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(442.50003, 34.25)
+scale = Vector2(881.00006, 69.5)
+texture = SubResource("PlaceholderTexture2D_8ryqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(441.5, 34.5)
+shape = SubResource("RectangleShape2D_31js7")
+
+[node name="RedOrb" parent="." instance=ExtResource("3_finow")]
+position = Vector2(225, -57)
