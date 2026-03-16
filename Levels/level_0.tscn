@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://6m40phpgks1p"]
+[gd_scene load_steps=9 format=3 uid="uid://6m40phpgks1p"]
 
 [ext_resource type="PackedScene" uid="uid://e77x46bxhwqh" path="res://Player/player.tscn" id="1_8ryqv"]
 [ext_resource type="Script" uid="uid://cegxak3hard5" path="res://Player/player.gd" id="2_31js7"]
 [ext_resource type="PackedScene" uid="uid://dcdp3cxg6i4n8" path="res://Orbs/red_orb.tscn" id="3_finow"]
+[ext_resource type="PackedScene" uid="uid://cgho0q6qip7hk" path="res://Orbs/green_orb.tscn" id="4_epnel"]
+[ext_resource type="PackedScene" uid="uid://bawbqosv8f5ri" path="res://Orbs/yellow_orb.tscn" id="5_am1cx"]
+[ext_resource type="PackedScene" uid="uid://ce786veh6y3o1" path="res://Orbs/blue_orb.tscn" id="6_hordx"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8ryqv"]
 
@@ -18,7 +21,7 @@ script = ExtResource("2_31js7")
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-446, 0)
+position = Vector2(-436, 55)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2(442.50003, 34.25)
@@ -53,5 +56,25 @@ texture = SubResource("PlaceholderTexture2D_8ryqv")
 position = Vector2(441.5, 34.5)
 shape = SubResource("RectangleShape2D_31js7")
 
-[node name="RedOrb" parent="." instance=ExtResource("3_finow")]
-position = Vector2(225, -57)
+[node name="orbs" type="Node" parent="."]
+
+[node name="RedOrb" parent="orbs" instance=ExtResource("3_finow")]
+position = Vector2(838, 80)
+
+[node name="RedOrb3" parent="orbs" instance=ExtResource("3_finow")]
+position = Vector2(1501, 31)
+
+[node name="GreenOrb" parent="orbs" instance=ExtResource("4_epnel")]
+position = Vector2(577, 113)
+
+[node name="RedOrb2" parent="orbs" instance=ExtResource("3_finow")]
+position = Vector2(323, -47)
+
+[node name="YellowOrb" parent="orbs" instance=ExtResource("5_am1cx")]
+position = Vector2(1369, 36)
+
+[node name="YellowOrb2" parent="orbs" instance=ExtResource("5_am1cx")]
+position = Vector2(1082, 98)
+
+[node name="BlueOrb" parent="orbs" instance=ExtResource("6_hordx")]
+position = Vector2(1637, 29)

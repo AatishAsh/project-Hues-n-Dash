@@ -60,19 +60,31 @@ func update_state():
 
 
 func update_animation():
-
 	var anim = color + "_" + state
-
-	if sprite.animation != anim:
-		sprite.play(anim)
+	
+	# Check if the specific animation (e.g., "red_run") exists
+	if sprite.sprite_frames.has_animation(anim):
+		if sprite.animation != anim:
+			sprite.play(anim)
+	else:
+		# FALLBACK: If "red_run" is missing, try to at least play "red_idle"
+		var fallback = color + "_idle"
+		if sprite.sprite_frames.has_animation(fallback):
+			if sprite.animation != fallback:
+				sprite.play(fallback)
+		else:
+			# If even the color_idle is missing, stay on default
+			push_warning("Animation missing: ", anim, " and ", fallback)
 
 
 # called by orb when picked
-func pickup_orb(new_color : String):
-
-	if carrying_item:
-		return
+func pickup_orb(new_color : String) -> bool:
+	# Optional: Prevent picking up the exact same color you are already holding
+	if carrying_item and color == new_color:
+		return false
 
 	carrying_item = true
 	color = new_color
 	update_animation()
+	
+	return true

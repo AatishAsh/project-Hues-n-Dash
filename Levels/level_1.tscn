@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4ua84yr7iuy"]
+
+[ext_resource type="Texture2D" uid="uid://d1if78cxy647e" path="res://Sprites/hue_n_dash tilemap.png" id="1_3mhv4"]
+[ext_resource type="PackedScene" uid="uid://e77x46bxhwqh" path="res://Player/player.tscn" id="2_rf6l5"]
+[ext_resource type="PackedScene" uid="uid://dcdp3cxg6i4n8" path="res://Orbs/red_orb.tscn" id="3_syshm"]
+[ext_resource type="PackedScene" uid="uid://cgho0q6qip7hk" path="res://Orbs/green_orb.tscn" id="4_rfktq"]
+[ext_resource type="PackedScene" uid="uid://ce786veh6y3o1" path="res://Orbs/blue_orb.tscn" id="5_0urlm"]
+[ext_resource type="PackedScene" uid="uid://bawbqosv8f5ri" path="res://Orbs/yellow_orb.tscn" id="6_77x7w"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rfktq"]
+texture = ExtResource("1_3mhv4")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_0urlm"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_rfktq")
+
+[node name="level1" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_0urlm")
+rendering_quadrant_size = 64
+collision_visibility_mode = 1
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 1, 0, 65536, 1, 1, 1, 65537, 0, 65537, 65537, 1, 2, 1, 0, 65538, 1, 1, 3, 65537, 0, 65539, 65537, 1, 4, 1, 0, 65540, 1, 1, 5, 65537, 0, 65541, 65537, 1, 6, 1, 0, 65542, 1, 1, 7, 65537, 0, 65543, 65537, 1, 8, 1, 0, 65544, 1, 1, 9, 65537, 0, 65545, 65537, 1, 10, 1, 0, 65546, 1, 1, 11, 65537, 0, 65547, 65537, 1, 12, 1, 0, 65548, 1, 1, 13, 65537, 0, 65549, 65537, 1, 14, 1, 0, 65550, 1, 1, 15, 65537, 0, 65551, 65537, 1, 16, 1, 0, 65552, 1, 1, 17, 65537, 0, 65553, 65537, 1, 18, 1, 0, 65554, 1, 1, 19, 65537, 0, 65555, 65537, 1, 20, 1, 0, 65556, 1, 1, 21, 65537, 0, 65557, 65537, 1, 22, 1, 0, 65558, 1, 1, 23, 65537, 0, 65559, 65537, 1, 24, 1, 0, 65560, 1, 1, 25, 65537, 0, 65561, 65537, 1, 26, 1, 0, 65562, 1, 1, 27, 65537, 0, 65563, 65537, 1, 28, 1, 0, 65564, 1, 1, 29, 65537, 0, 65565, 65537, 1, 30, 1, 0, 65566, 1, 1, 31, 65537, 0, 65567, 65537, 1, 32, 1, 0, 65568, 1, 1, 33, 65537, 0, 65569, 65537, 1, 34, 1, 0, 65570, 1, 1, 35, 65537, 0, 65571, 65537, 1, 36, 1, 0, 65572, 1, 1, 37, 65537, 0, 65573, 65537, 1, 38, 1, 0, 65574, 1, 1, 39, 65537, 0, 65575, 65537, 1, 40, 1, 0, 65576, 1, 1, 41, 65537, 0, 65577, 65537, 1, 42, 1, 0, 65578, 1, 1, 43, 65537, 0, 65579, 65537, 1, 44, 1, 0, 65580, 1, 1, 45, 65537, 0, 65581, 65537, 1, 46, 1, 0, 65582, 1, 1, 47, 65537, 0, 65583, 65537, 1, 48, 1, 0, 65584, 1, 1, 49, 65537, 0, 65585, 65537, 1, 50, 1, 0, 65586, 1, 1, 51, 65537, 0, 65587, 65537, 1, 52, 1, 0, 65588, 1, 1, 53, 65537, 0, 65589, 65537, 1, 54, 1, 0, 65590, 1, 1, 55, 65537, 0, 65591, 65537, 1, 56, 1, 0, 65592, 1, 1, 57, 65537, 0, 65593, 65537, 1, 58, 1, 0, 65594, 1, 1, 59, 65537, 0, 65595, 65537, 1, 60, 1, 0, 65596, 1, 1, 61, 65537, 0, 65597, 65537, 1, 62, 1, 0, 65598, 1, 1, 63, 65537, 0, 65599, 65537, 1, 64, 1, 0, 65600, 1, 1, 65, 65537, 0, 65601, 65537, 1, 66, 1, 0, 65602, 1, 1, 67, 65537, 0, 65603, 65537, 1, 68, 1, 0, 65604, 1, 1, 69, 65537, 0, 65605, 65537, 1, 70, 1, 0, 65606, 1, 1, 71, 65537, 0, 65607, 65537, 1, 72, 1, 0, 65608, 1, 1, 73, 65537, 0, 65609, 65537, 1, 74, 1, 0, 65610, 1, 1, 75, 65537, 0, 65611, 65537, 1, 76, 1, 0, 65612, 1, 1, 77, 65537, 0, 65613, 65537, 1, 78, 1, 0, 65614, 1, 1, 79, 65537, 0, 65615, 65537, 1, 80, 1, 0, 65616, 1, 1, 81, 65537, 0, 65617, 65537, 1, 82, 1, 0, 65618, 1, 1, 83, 65537, 0, 65619, 65537, 1)
+
+[node name="orbs" type="Node" parent="."]
+
+[node name="RedOrb" parent="orbs" instance=ExtResource("3_syshm")]
+position = Vector2(261, -38)
+
+[node name="RedOrb2" parent="orbs" instance=ExtResource("3_syshm")]
+position = Vector2(984, -43)
+
+[node name="GreenOrb" parent="orbs" instance=ExtResource("4_rfktq")]
+position = Vector2(489, -45)
+
+[node name="GreenOrb2" parent="orbs" instance=ExtResource("4_rfktq")]
+position = Vector2(802, -43)
+
+[node name="BlueOrb" parent="orbs" instance=ExtResource("5_0urlm")]
+position = Vector2(662, -47)
+
+[node name="BlueOrb2" parent="orbs" instance=ExtResource("5_0urlm")]
+position = Vector2(1277, -37)
+
+[node name="YellowOrb" parent="orbs" instance=ExtResource("6_77x7w")]
+position = Vector2(389, -45)
+
+[node name="YellowOrb2" parent="orbs" instance=ExtResource("6_77x7w")]
+position = Vector2(888, -39)
+
+[node name="Player" parent="." instance=ExtResource("2_rf6l5")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]

@@ -15,11 +15,16 @@ func _on_body_exited(body):
 		player_in_range = null
 
 
-func _process(_delta):
-
+func _unhandled_input(event):
 	if player_in_range == null:
 		return
 
-	if Input.is_action_just_pressed("pick_item"):
-		player_in_range.pickup_orb(color)
-		queue_free()
+	if event.is_action_pressed("pick_item"):
+		# Try to give the orb to the player and check if they accepted it
+		var was_picked_up = player_in_range.pickup_orb(color)
+		
+		# Only destroy the orb if the player actually picked it up
+		if was_picked_up:
+			queue_free()
+			# This stops multiple overlapping orbs from being picked up at the exact same time
+			get_viewport().set_input_as_handled()
