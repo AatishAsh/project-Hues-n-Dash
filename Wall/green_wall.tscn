@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbitdda3qtwgc"]
+
+[ext_resource type="PackedScene" uid="uid://tep1slbosllp" path="res://Wall/color_wall.tscn" id="1_67qre"]
+
+[node name="green_Wall" instance=ExtResource("1_67qre")]
+required_color = "green"
+
+[node name="ColorRect" parent="." index="0"]
+color = Color(0.42745098, 0.90588236, 0, 1)

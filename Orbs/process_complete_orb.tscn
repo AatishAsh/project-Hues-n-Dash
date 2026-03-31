@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb6wjwx36r707"]
+
+[ext_resource type="Script" uid="uid://dx0ommqfwmsu" path="res://Orbs/process_complete_orb.gd" id="1_ir8dn"]
+[ext_resource type="Texture2D" uid="uid://b6e5gekpqsvx0" path="res://Sprites/process_complete.png" id="1_u5ajp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ir8dn"]
+radius = 19.0
+
+[node name="ProcessCompleteOrb" type="Area2D"]
+rotation = 3.1415927
+script = ExtResource("1_ir8dn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_u5ajp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ir8dn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

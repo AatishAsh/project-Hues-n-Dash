@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://tep1slbosllp"]
+
+[ext_resource type="Script" uid="uid://cqfcwujjxfllg" path="res://Wall/color_wall.gd" id="1_2fmce"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5e7ne"]
+size = Vector2(9, 166)
+
+[node name="Color_Wall" type="Area2D"]
+script = ExtResource("1_2fmce")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = -166.0
+offset_right = 9.0
+color = Color(1, 0.36078432, 0.19215687, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.5, -83)
+shape = SubResource("RectangleShape2D_5e7ne")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

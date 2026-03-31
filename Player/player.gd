@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var jump_force := -400
 @export var gravity := 900
 @onready var sprite: AnimatedSprite2D= $AnimatedSprite2D
+@onready var game_over_menu: CanvasLayer = $"../GameOverMenu"
+@onready var win_menu: CanvasLayer = $"../WinMenu"
 
 # player status
 var state : String = "idle"
@@ -88,3 +90,13 @@ func pickup_orb(new_color : String) -> bool:
 	update_animation()
 	
 	return true
+
+func win():
+	print("Level Complete! Pausing game.")
+	get_tree().paused = true
+	win_menu.show()
+	
+func die():
+	print("Player is dead. Pausing game.")
+	get_tree().paused = true # Freezes the physics and enemies
+	game_over_menu.show() # Reveals the CanvasLayer menu

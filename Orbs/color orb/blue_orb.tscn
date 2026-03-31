@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ce786veh6y3o1"]
 
-[ext_resource type="PackedScene" uid="uid://dcdp3cxg6i4n8" path="res://Orbs/red_orb.tscn" id="1_p4xpn"]
+[ext_resource type="PackedScene" uid="uid://dcdp3cxg6i4n8" path="res://Orbs/color orb/red_orb.tscn" id="1_p4xpn"]
 
 [node name="BlueOrb" instance=ExtResource("1_p4xpn")]
 color = "blue"
