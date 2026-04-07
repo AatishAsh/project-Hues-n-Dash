@@ -41,10 +41,10 @@ text = "$PROCESS_EXECUTED_SUCCESSFULLY"
 
 [node name="NextLevel" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "RETRY_LEVEL"
+text = "NEXT_LEVEL"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="retry" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "TERMINATE_LEVEL"
+text = "RETRY_LEVEL"
 
 [connection signal="pressed" from="VBoxContainer/NextLevel" to="." method="_on_next_level_pressed"]

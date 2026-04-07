@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dcdp3cxg6i4n8"]
 
-[ext_resource type="Script" uid="uid://cmo06m6yai4er" path="res://Orbs/color orb/red_orb.gd" id="1_pbrx2"]
+[ext_resource type="Script" uid="uid://cmo06m6yai4er" path="res://Scripts/color orb/red_orb.gd" id="1_pbrx2"]
 [ext_resource type="Texture2D" uid="uid://dw661kbsegi6a" path="res://Sprites/orbs.png" id="2_pbrx2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pbrx2"]

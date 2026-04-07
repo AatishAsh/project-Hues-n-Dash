@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://du7bk4qk4kt0n"]
+
+[ext_resource type="Script" uid="uid://gc7a3wdac7yy" path="res://bug_1.gd" id="1_l6pto"]
+[ext_resource type="Texture2D" uid="uid://exehygqhsaht" path="res://Sprites/bug.png" id="2_gypfg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eepel"]
+radius = 18.0
+height = 78.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l6pto"]
+radius = 18.0
+height = 96.0
+
+[node name="Bug1" type="CharacterBody2D"]
+script = ExtResource("1_l6pto")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6.000001, 4)
+scale = Vector2(0.859375, 0.84375)
+texture = ExtResource("2_gypfg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_eepel")
+
+[node name="killzone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(8, 5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_l6pto")
+
+[node name="Raycastes" type="Node2D" parent="."]
+
+[node name="WallCheck" type="RayCast2D" parent="Raycastes"]
+target_position = Vector2(52, 0)
+
+[node name="LedgeCheck" type="RayCast2D" parent="Raycastes"]
+position = Vector2(1, 1)
+target_position = Vector2(43, 33)
+
+[connection signal="body_entered" from="killzone" to="." method="_on_killzone_body_entered"]

@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=4 uid="uid://c4ua84yr7iuy"]
+[gd_scene load_steps=13 format=4 uid="uid://c4ua84yr7iuy"]
 
 [ext_resource type="Texture2D" uid="uid://d1if78cxy647e" path="res://Sprites/hue_n_dash tilemap.png" id="1_3mhv4"]
-[ext_resource type="PackedScene" uid="uid://e77x46bxhwqh" path="res://Player/player.tscn" id="2_rf6l5"]
-[ext_resource type="PackedScene" uid="uid://dcdp3cxg6i4n8" path="res://Orbs/color orb/red_orb.tscn" id="3_syshm"]
-[ext_resource type="PackedScene" uid="uid://cgho0q6qip7hk" path="res://Orbs/color orb/green_orb.tscn" id="4_rfktq"]
+[ext_resource type="PackedScene" uid="uid://e77x46bxhwqh" path="res://Scenes/Player/player.tscn" id="2_rf6l5"]
+[ext_resource type="PackedScene" uid="uid://dcdp3cxg6i4n8" path="res://Scenes/Orbs/color orb/red_orb.tscn" id="3_syshm"]
+[ext_resource type="PackedScene" uid="uid://cgho0q6qip7hk" path="res://Scenes/Orbs/color orb/green_orb.tscn" id="4_rfktq"]
 [ext_resource type="PackedScene" uid="uid://tep1slbosllp" path="res://Wall/color_wall.tscn" id="6_0urlm"]
 [ext_resource type="PackedScene" uid="uid://bbitdda3qtwgc" path="res://Wall/green_wall.tscn" id="6_rfktq"]
-[ext_resource type="PackedScene" uid="uid://cb6wjwx36r707" path="res://Orbs/process_complete_orb.tscn" id="7_0urlm"]
+[ext_resource type="PackedScene" uid="uid://cb6wjwx36r707" path="res://Scenes/Orbs/process_complete_orb/process_complete_orb.tscn" id="7_0urlm"]
 [ext_resource type="PackedScene" uid="uid://b80fa1cliat8m" path="res://UI/game_over_menu.tscn" id="8_77x7w"]
 [ext_resource type="PackedScene" uid="uid://bwpe4qmcgpj38" path="res://UI/win_menu.tscn" id="9_xoyoh"]
+[ext_resource type="PackedScene" uid="uid://du7bk4qk4kt0n" path="res://Scenes/enemy/bug1/bug_1.tscn" id="10_f4pg2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rfktq"]
 texture = ExtResource("1_3mhv4")
@@ -61,3 +62,6 @@ visible = false
 
 [node name="WinMenu" parent="." instance=ExtResource("9_xoyoh")]
 visible = false
+
+[node name="Bug1" parent="." instance=ExtResource("10_f4pg2")]
+position = Vector2(210, 168)
