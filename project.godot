@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Hues n Dash"
 config/version="1.0"
-run/main_scene="uid://c4ua84yr7iuy"
+run/main_scene="uid://ba1yvibrytyhu"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="uid://b8hj57fi4pktm"
 
