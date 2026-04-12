@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwelrcgb3vjv0"]
+
+[ext_resource type="Script" uid="uid://bm5whioc7jogu" path="res://Scripts/process_complete_orb/jump_orb.gd" id="1_4xy0f"]
+[ext_resource type="Texture2D" uid="uid://3ex1v036bhwf" path="res://Sprites/doublejumporb.png" id="2_xp6la"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hcsrj"]
+radius = 19.0
+height = 40.0
+
+[node name="JumpOrb" type="Area2D"]
+script = ExtResource("1_4xy0f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xp6la")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hcsrj")
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://b1nt12he5lk5i"]
 
-[ext_resource type="PackedScene" uid="uid://tep1slbosllp" path="res://Wall/color_wall.tscn" id="1_3qkxm"]
+[ext_resource type="PackedScene" uid="uid://tep1slbosllp" path="res://Scenes/Wall/color_wall.tscn" id="1_3qkxm"]
 
 [node name="red_Wall" instance=ExtResource("1_3qkxm")]

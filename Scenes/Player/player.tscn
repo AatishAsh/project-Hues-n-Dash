@@ -153,3 +153,21 @@ frame_progress = 0.36450595
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -36)
 shape = SubResource("CapsuleShape2D_x3wgy")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="TimeLabel" type="Label" parent="HUD"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.5
+offset_right = 59.5
+offset_bottom = 87.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "60"
+
+[node name="LevelTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
