@@ -36,14 +36,14 @@ position = Vector2(4, -27)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="green_Wall" parent="." instance=ExtResource("3_afv7b")]
-position = Vector2(514, 10)
-rotation = 1.5707964
-
 [node name="wall" type="Node" parent="."]
 
 [node name="Red_Wall" parent="wall" instance=ExtResource("4_7r2dd")]
 position = Vector2(357, 3)
+
+[node name="green_Wall" parent="wall" instance=ExtResource("3_afv7b")]
+position = Vector2(516, 12)
+rotation = 1.5707964
 
 [node name="orbs" type="Node" parent="."]
 
@@ -56,7 +56,7 @@ position = Vector2(97, -44)
 [node name="ProcessCompleteOrb" parent="orbs" instance=ExtResource("7_3628d")]
 position = Vector2(-37, 140)
 rotation = -3.1415925
-next_level_path = "res://Levels/level_2.tscn"
+next_level_path = "res://Scenes/Levels/level_2.tscn"
 
 [node name="GameOverMenu" parent="." instance=ExtResource("8_irw6p")]
 visible = false

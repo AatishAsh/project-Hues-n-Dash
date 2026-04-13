@@ -24,7 +24,7 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rfktq")
 
-[node name="level1" type="Node2D"]
+[node name="level2" type="Node2D"]
 position = Vector2(2, 2)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -54,7 +54,7 @@ position = Vector2(97, -44)
 [node name="ProcessCompleteOrb" parent="orbs" instance=ExtResource("6_ia1lp")]
 position = Vector2(-19, 124)
 rotation = -3.1415925
-next_level_path = "res://Levels/level_3.tscn"
+next_level_path = "res://Scenes/Levels/level_3.tscn"
 
 [node name="blue_wall" parent="orbs" instance=ExtResource("7_5buja")]
 position = Vector2(1183, 3)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://e77x46bxhwqh"]
+[gd_scene load_steps=21 format=3 uid="uid://e77x46bxhwqh"]
 
 [ext_resource type="Script" uid="uid://cegxak3hard5" path="res://Scripts/Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://ev20fodk0qnv" path="res://Sprites/mona_idle.png" id="1_v0iea"]
+[ext_resource type="PackedScene" uid="uid://jl5fwg8ibbli" path="res://Scenes/Menu/pause_menu.tscn" id="3_xpcdj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l8h54"]
 atlas = ExtResource("1_v0iea")
@@ -155,6 +156,9 @@ position = Vector2(1, -36)
 shape = SubResource("CapsuleShape2D_x3wgy")
 
 [node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="HUD" instance=ExtResource("3_xpcdj")]
+visible = false
 
 [node name="TimeLabel" type="Label" parent="HUD"]
 anchors_preset = 5

@@ -1,0 +1,209 @@
+[gd_scene load_steps=10 format=3 uid="uid://jl5fwg8ibbli"]
+
+[ext_resource type="Script" uid="uid://bg2u78y6bf00k" path="res://Scripts/UI/pause_menu.gd" id="1_6pfc5"]
+[ext_resource type="StyleBox" uid="uid://td6ogj4pjrul" path="res://Scenes/Menu/main_menu.tres" id="1_i0al5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pfc5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.9529412, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 30.0
+expand_margin_right = 30.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hoqq"]
+bg_color = Color(0, 0, 0, 0.99607843)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.9529412, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 30.0
+expand_margin_right = 30.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0km3y"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.9529412, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 30.0
+expand_margin_right = 30.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnmi5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.9529412, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+
+[sub_resource type="Gradient" id="Gradient_mux1j"]
+colors = PackedColorArray(0, 0.9529412, 0, 1, 0, 0.9529412, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jnmi5"]
+gradient = SubResource("Gradient_mux1j")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mux1j"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 10
+script = ExtResource("1_6pfc5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7411765)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -346.0
+offset_top = -205.5
+offset_right = 346.0
+offset_bottom = 205.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -346.25
+offset_top = -205.25
+offset_right = 346.25
+offset_bottom = 205.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_i0al5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.9529412, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_6pfc5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3hoqq")
+text = "RESUME"
+
+[node name="Spacer2" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.9529412, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_0km3y")
+text = "RESTART"
+
+[node name="Spacer3" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="MainMenu" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.9529412, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_jnmi5")
+text = "MAIN_MENU"
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -347.0
+offset_top = 3.25
+offset_right = 349.0
+offset_bottom = 61.25
+grow_horizontal = 2
+texture = SubResource("GradientTexture1D_jnmi5")
+
+[node name="pause_exe" type="Label" parent="Panel/TextureRect"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 3.0
+offset_right = 293.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 34
+text = "C:/PAUSE.EXE"
+
+[node name="X" type="Button" parent="Panel/TextureRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_mux1j")
+text = "X"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
