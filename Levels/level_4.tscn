@@ -1,0 +1,78 @@
+[gd_scene load_steps=16 format=4 uid="uid://qwr07lc4k4gt"]
+
+[ext_resource type="Texture2D" uid="uid://d1if78cxy647e" path="res://Sprites/hue_n_dash tilemap.png" id="1_x4mg1"]
+[ext_resource type="PackedScene" uid="uid://e77x46bxhwqh" path="res://Scenes/Player/player.tscn" id="2_6iucq"]
+[ext_resource type="PackedScene" uid="uid://tep1slbosllp" path="res://Scenes/Wall/color_wall.tscn" id="3_fcg6d"]
+[ext_resource type="PackedScene" uid="uid://bbitdda3qtwgc" path="res://Scenes/Wall/green_wall.tscn" id="4_3227t"]
+[ext_resource type="PackedScene" uid="uid://daps6vjuhmri1" path="res://Scenes/Wall/blue_wall.tscn" id="5_lk1ng"]
+[ext_resource type="PackedScene" uid="uid://cgho0q6qip7hk" path="res://Scenes/Orbs/color orb/green_orb.tscn" id="6_jovq6"]
+[ext_resource type="PackedScene" uid="uid://dcdp3cxg6i4n8" path="res://Scenes/Orbs/color orb/red_orb.tscn" id="7_g7gqs"]
+[ext_resource type="PackedScene" uid="uid://cb6wjwx36r707" path="res://Scenes/Orbs/process_orb/process_complete_orb.tscn" id="8_lvag0"]
+[ext_resource type="PackedScene" uid="uid://ce786veh6y3o1" path="res://Scenes/Orbs/color orb/blue_orb.tscn" id="9_qxw0v"]
+[ext_resource type="PackedScene" uid="uid://b80fa1cliat8m" path="res://Scenes/Menu/game_over_menu.tscn" id="10_y1fcd"]
+[ext_resource type="PackedScene" uid="uid://bwpe4qmcgpj38" path="res://Scenes/Menu/win_menu.tscn" id="11_ln4nl"]
+[ext_resource type="PackedScene" uid="uid://bwelrcgb3vjv0" path="res://Scenes/Orbs/process_orb/jump_orb.tscn" id="12_eu5mq"]
+[ext_resource type="PackedScene" uid="uid://du7bk4qk4kt0n" path="res://Scenes/enemy/bug1/bug_1.tscn" id="13_btea2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rfktq"]
+texture = ExtResource("1_x4mg1")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_0urlm"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_rfktq")
+
+[node name="level1" type="Node2D"]
+position = Vector2(2, 2)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = 1
+position = Vector2(-1, 0)
+tile_map_data = PackedByteArray("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")
+tile_set = SubResource("TileSet_0urlm")
+
+[node name="Player" parent="." instance=ExtResource("2_6iucq")]
+position = Vector2(4, -27)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="wall" type="Node" parent="."]
+
+[node name="Red_Wall" parent="wall" instance=ExtResource("3_fcg6d")]
+position = Vector2(357, 3)
+
+[node name="green_Wall" parent="wall" instance=ExtResource("4_3227t")]
+position = Vector2(1766, 3)
+
+[node name="blue_wall" parent="wall" instance=ExtResource("5_lk1ng")]
+position = Vector2(1183, 3)
+
+[node name="orbs" type="Node" parent="."]
+
+[node name="GreenOrb" parent="orbs" instance=ExtResource("6_jovq6")]
+position = Vector2(1377, -231)
+
+[node name="RedOrb" parent="orbs" instance=ExtResource("7_g7gqs")]
+position = Vector2(97, -44)
+
+[node name="ProcessCompleteOrb" parent="orbs" instance=ExtResource("8_lvag0")]
+position = Vector2(1974, -37)
+rotation = -3.1415925
+
+[node name="BlueOrb" parent="orbs" instance=ExtResource("9_qxw0v")]
+position = Vector2(758, -199)
+
+[node name="GameOverMenu" parent="." instance=ExtResource("10_y1fcd")]
+visible = false
+
+[node name="WinMenu" parent="." instance=ExtResource("11_ln4nl")]
+visible = false
+
+[node name="JumpOrb" parent="." instance=ExtResource("12_eu5mq")]
+position = Vector2(1710, -46)
+
+[node name="Bug1" parent="." instance=ExtResource("13_btea2")]
+position = Vector2(778, -152)

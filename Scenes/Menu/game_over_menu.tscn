@@ -1,9 +1,81 @@
-[gd_scene load_steps=2 format=3 uid="uid://b80fa1cliat8m"]
+[gd_scene load_steps=13 format=3 uid="uid://b80fa1cliat8m"]
 
 [ext_resource type="Script" uid="uid://ebi06xhywksr" path="res://Scripts/UI/game_over_menu.gd" id="1_jobbv"]
+[ext_resource type="StyleBox" uid="uid://td6ogj4pjrul" path="res://Scenes/Menu/main_menu.tres" id="2_uuamm"]
+[ext_resource type="StyleBox" uid="uid://cb56r0kti4r74" path="res://Scenes/Menu/menu_buttons.tres" id="3_h83e1"]
+
+[sub_resource type="Gradient" id="Gradient_mt6qi"]
+colors = PackedColorArray(0, 0.9529412, 0, 1, 0, 0.9529412, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h83e1"]
+gradient = SubResource("Gradient_mt6qi")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ceu4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uuamm"]
+bg_color = Color(0, 0, 0, 0.99607843)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.9529412, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 30.0
+expand_margin_top = 2.0
+expand_margin_right = 30.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h83e1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h83e1"]
+bg_color = Color(0, 0, 0, 0.99607843)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 30.0
+expand_margin_top = 2.0
+expand_margin_right = 30.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_45qsb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ilc1c"]
+bg_color = Color(0, 0, 0, 0.99607843)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 5.0
+expand_margin_top = 2.0
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ceu4"]
 
 [node name="GameOverMenu" type="CanvasLayer"]
 process_mode = 3
+layer = 10
 script = ExtResource("1_jobbv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -18,34 +90,131 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.8352941)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -249.0
-offset_top = -70.0
-offset_right = 249.0
-offset_bottom = 104.0
+offset_left = -346.0
+offset_top = -205.5
+offset_right = 346.0
+offset_bottom = 205.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -346.25
+offset_top = -205.25
+offset_right = 346.25
+offset_bottom = 205.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_uuamm")
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -347.0
+offset_top = 3.25
+offset_right = 349.0
+offset_bottom = 61.25
+grow_horizontal = 2
+texture = SubResource("GradientTexture1D_h83e1")
+
+[node name="title" type="Label" parent="ColorRect/Panel/TextureRect"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 326.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 34
+text = "C:/GAME_OVER.EXE"
+
+[node name="X" type="Button" parent="ColorRect/Panel/TextureRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_7ceu4")
+text = "X"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = -97.0
+offset_right = 246.0
+offset_bottom = 77.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+[node name="TitleLabel" type="Label" parent="ColorRect/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 0.03529412, 0, 1)
 theme_override_font_sizes/font_size = 51
-text = "$PROCESS_FAILED...."
+text = "$YOU_HAVE_DIED"
 
-[node name="Retry" type="Button" parent="VBoxContainer"]
+[node name="Spacer2" type="Control" parent="ColorRect/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
+
+[node name="Retry" type="Button" parent="ColorRect/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.9529412, 0, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_uuamm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h83e1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h83e1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_45qsb")
 text = "RETRY_LEVEL"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Spacer3" type="Control" parent="ColorRect/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
-text = "TERMINATE_LEVEL"
 
-[connection signal="pressed" from="VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[node name="Quit" type="Button" parent="ColorRect/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.9529412, 0, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_h83e1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ilc1c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ceu4")
+text = "MAIN_MENU"
+
+[connection signal="pressed" from="ColorRect/Panel/VBoxContainer/Retry" to="." method="_on_retry_pressed"]

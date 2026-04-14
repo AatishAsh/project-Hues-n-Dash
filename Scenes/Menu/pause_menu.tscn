@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://jl5fwg8ibbli"]
+[gd_scene load_steps=15 format=3 uid="uid://jl5fwg8ibbli"]
 
 [ext_resource type="Script" uid="uid://bg2u78y6bf00k" path="res://Scripts/UI/pause_menu.gd" id="1_6pfc5"]
 [ext_resource type="StyleBox" uid="uid://td6ogj4pjrul" path="res://Scenes/Menu/main_menu.tres" id="1_i0al5"]
@@ -15,21 +15,12 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 expand_margin_left = 30.0
+expand_margin_top = 2.0
 expand_margin_right = 30.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hoqq"]
-bg_color = Color(0, 0, 0, 0.99607843)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0.9529412, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_left = 30.0
-expand_margin_right = 30.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mux1j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3hoqq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0km3y"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -42,8 +33,13 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-expand_margin_left = 30.0
-expand_margin_right = 30.0
+expand_margin_left = 25.0
+expand_margin_top = 2.0
+expand_margin_right = 25.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0km3y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dehqv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnmi5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -56,8 +52,13 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-expand_margin_left = 4.0
-expand_margin_right = 4.0
+expand_margin_left = 10.0
+expand_margin_top = 2.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6pfc5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jnmi5"]
 
 [sub_resource type="Gradient" id="Gradient_mux1j"]
 colors = PackedColorArray(0, 0.9529412, 0, 1, 0, 0.9529412, 0, 1)
@@ -135,7 +136,8 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.9529412, 0, 1)
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_6pfc5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_3hoqq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mux1j")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3hoqq")
 text = "RESUME"
 
 [node name="Spacer2" type="Control" parent="Panel/VBoxContainer"]
@@ -148,6 +150,8 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.9529412, 0, 1)
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_0km3y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0km3y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dehqv")
 text = "RESTART"
 
 [node name="Spacer3" type="Control" parent="Panel/VBoxContainer"]
@@ -160,6 +164,8 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.9529412, 0, 1)
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_jnmi5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6pfc5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jnmi5")
 text = "MAIN_MENU"
 
 [node name="TextureRect" type="TextureRect" parent="Panel"]
@@ -177,9 +183,9 @@ texture = SubResource("GradientTexture1D_jnmi5")
 [node name="pause_exe" type="Label" parent="Panel/TextureRect"]
 layout_mode = 0
 offset_left = 15.0
-offset_top = 3.0
+offset_top = 11.0
 offset_right = 293.0
-offset_bottom = 55.0
+offset_bottom = 63.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 34
 text = "C:/PAUSE.EXE"
@@ -207,3 +213,4 @@ text = "X"
 [connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Panel/TextureRect/X" to="." method="_on_x_pressed"]

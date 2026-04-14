@@ -1,12 +1,45 @@
-[gd_scene load_steps=8 format=3 uid="uid://ba1yvibrytyhu"]
+[gd_scene load_steps=16 format=3 uid="uid://ba1yvibrytyhu"]
 
 [ext_resource type="Texture2D" uid="uid://ccb0e8jlunxv4" path="res://Sprites/tittle_logo.png" id="1_bkwd7"]
 [ext_resource type="Script" uid="uid://dnebrjodpmcgi" path="res://Scripts/UI/main_menu.gd" id="1_tself"]
 [ext_resource type="StyleBox" uid="uid://td6ogj4pjrul" path="res://Scenes/Menu/main_menu.tres" id="3_7jtkx"]
 [ext_resource type="AudioStream" uid="uid://bt7v5f4kr8mfu" path="res://Audio/viacheslavstarostin-game-gaming-video-game-music-471936.mp3" id="4_vmek6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmek6"]
+[sub_resource type="Gradient" id="Gradient_mux1j"]
+colors = PackedColorArray(0, 0.9529412, 0, 1, 0, 0.9529412, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vmek6"]
+gradient = SubResource("Gradient_mux1j")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpijq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pn3xf"]
+bg_color = Color(0, 0, 0, 0.99607843)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.9529412, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_top = 2.0
+expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmek6"]
+bg_color = Color(0, 0, 0, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
@@ -17,7 +50,12 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 expand_margin_left = 5.0
+expand_margin_top = 2.0
 expand_margin_right = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gpijq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pn3xf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jtkx"]
 bg_color = Color(0, 0, 0, 1)
@@ -31,7 +69,10 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 expand_margin_left = 15.0
+expand_margin_top = 2.0
 expand_margin_right = 15.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmek6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ab7fb"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -45,22 +86,93 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 expand_margin_left = 15.0
+expand_margin_top = 2.0
 expand_margin_right = 15.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ab7fb"]
+
 [node name="MainMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+size_flags_horizontal = 4
 script = ExtResource("1_tself")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-offset_top = 63.0
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vmek6")
+autoplay = true
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 213.0
+offset_top = 154.0
+offset_right = 905.0
+offset_bottom = 565.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_7jtkx")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -348.0
+offset_top = 2.5
+offset_right = 348.0
+offset_bottom = 60.5
+grow_horizontal = 2
+texture = SubResource("GradientTexture1D_vmek6")
+
+[node name="title" type="Label" parent="MarginContainer/Panel/TextureRect"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 326.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 34
+text = "C:/Main_Menu.exe"
+
+[node name="X" type="Button" parent="MarginContainer/Panel/TextureRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_gpijq")
+text = "X"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+offset_left = -233.0
+offset_top = -111.0
+offset_right = 919.0
+offset_bottom = 474.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(50, 80)
 layout_mode = 2
@@ -68,40 +180,55 @@ texture = ExtResource("1_bkwd7")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Spacer" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
+[node name="Spacer" type="Control" parent="MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Start" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.94509804, 0, 1)
 theme_override_font_sizes/font_size = 34
-theme_override_styles/normal = ExtResource("3_7jtkx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pn3xf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vmek6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gpijq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pn3xf")
 text = "START_PROGRAM"
 
-[node name="Spacer2" type="Control" parent="VBoxContainer"]
+[node name="Spacer2" type="Control" parent="MarginContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.94509804, 0, 1)
 theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxFlat_7jtkx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vmek6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ab7fb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ab7fb")
 text = "QUIT_PROGRAM"
 
-[node name="TittleLogo" type="Sprite2D" parent="VBoxContainer"]
+[node name="TittleLogo" type="Sprite2D" parent="MarginContainer/Panel/VBoxContainer"]
 position = Vector2(584, 35.875)
 scale = Vector2(0.34999993, 0.5745614)
 texture = ExtResource("1_bkwd7")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_vmek6")
-autoplay = true
+[node name="Label" type="Label" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -22.0
+offset_right = 64.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Made by Aatish A"
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

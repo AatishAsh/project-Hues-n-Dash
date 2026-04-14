@@ -34,7 +34,7 @@ shape = SubResource("CapsuleShape2D_l6pto")
 [node name="Raycastes" type="Node2D" parent="."]
 
 [node name="WallCheck" type="RayCast2D" parent="Raycastes"]
-target_position = Vector2(41, 0)
+target_position = Vector2(41, 5)
 
 [node name="LedgeCheck" type="RayCast2D" parent="Raycastes"]
 position = Vector2(1, 1)

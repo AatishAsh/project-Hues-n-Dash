@@ -1,50 +1,177 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwpe4qmcgpj38"]
+[gd_scene load_steps=10 format=3 uid="uid://bwpe4qmcgpj38"]
 
 [ext_resource type="Script" uid="uid://cbq1dka3k8oad" path="res://Scripts/UI/win_menu.gd" id="1_me3s3"]
+[ext_resource type="StyleBox" uid="uid://td6ogj4pjrul" path="res://Scenes/Menu/main_menu.tres" id="2_mngs2"]
+[ext_resource type="StyleBox" uid="uid://cb56r0kti4r74" path="res://Scenes/Menu/menu_buttons.tres" id="3_mt6qi"]
+
+[sub_resource type="Gradient" id="Gradient_mt6qi"]
+colors = PackedColorArray(0, 0.9529412, 0, 1, 0, 0.9529412, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_txdhe"]
+gradient = SubResource("Gradient_mt6qi")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8qdw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mt6qi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_txdhe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e8qdw"]
 
 [node name="WinMenu" type="CanvasLayer"]
 process_mode = 3
+layer = 10
 script = ExtResource("1_me3s3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 27.0
-offset_right = 3.0
-offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.45490196)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -249.0
+offset_left = -346.0
+offset_top = -205.5
+offset_right = 346.0
+offset_bottom = 205.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -346.25
+offset_top = -205.25
+offset_right = 346.25
+offset_bottom = 205.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_mngs2")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -347.0
+offset_top = 3.25
+offset_right = 349.0
+offset_bottom = 61.25
+grow_horizontal = 2
+texture = SubResource("GradientTexture1D_txdhe")
+
+[node name="pause_exe" type="Label" parent="Panel/TextureRect"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 13.0
+offset_right = 306.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 34
+text = "C:/WIN_MENU.EXE"
+
+[node name="X" type="Button" parent="Panel/TextureRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 1.0
+offset_right = -8.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_e8qdw")
+text = "X"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -456.5
 offset_top = -70.0
-offset_right = 249.0
+offset_right = 456.5
 offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 1, 0.03529412, 1)
-theme_override_font_sizes/font_size = 51
-text = "$PROCESS_EXECUTED_SUCCESSFULLY"
+theme_override_font_sizes/font_size = 33
+text = "$LEVEL_COMPLETED_SUCCESSFULLY"
 
-[node name="NextLevel" type="Button" parent="VBoxContainer"]
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+
+[node name="NextLevel" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.9529412, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_mt6qi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mt6qi")
 text = "NEXT_LEVEL"
 
-[node name="retry" type="Button" parent="VBoxContainer"]
+[node name="Spacer2" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
+
+[node name="retry" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.9529412, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_mt6qi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_txdhe")
 text = "RETRY_LEVEL"
 
-[connection signal="pressed" from="VBoxContainer/NextLevel" to="." method="_on_next_level_pressed"]
+[node name="Spacer3" type="Control" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="MainMenu" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.9529412, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("3_mt6qi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e8qdw")
+text = "MAIN_MENU"
+
+[connection signal="pressed" from="Panel/TextureRect/X" to="." method="_on_x_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/NextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

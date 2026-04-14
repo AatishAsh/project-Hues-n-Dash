@@ -120,7 +120,7 @@ func win(target_level: String):
 	win_menu.next_level_path = target_level
 	win_menu.show()
 	
-func die(reason: String = "$FATAL_ERROR"):
+func die(reason: String = "$YOU_HAVE_DIED!_"):
 	print("Player dead. Reason: ", reason)
 	get_tree().paused = true
 	
@@ -131,4 +131,4 @@ func die(reason: String = "$FATAL_ERROR"):
 
 func _on_level_timer_timeout() -> void:
 	print("Time is up!")
-	die("$TIMEOUT_ERROR.")
+	die("$TIMEOUT!_")

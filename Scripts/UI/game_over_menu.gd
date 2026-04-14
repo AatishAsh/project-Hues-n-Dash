@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var title_label = $VBoxContainer/TitleLabel
+@onready var title_label = $ColorRect/Panel/VBoxContainer/TitleLabel
 func _ready():
 	# Hide the menu by default when the level starts
 	hide()

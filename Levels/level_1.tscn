@@ -1,18 +1,18 @@
 [gd_scene load_steps=13 format=4 uid="uid://c4ua84yr7iuy"]
 
-[ext_resource type="Texture2D" uid="uid://d1if78cxy647e" path="res://Sprites/hue_n_dash tilemap.png" id="1_u5ghp"]
-[ext_resource type="PackedScene" uid="uid://e77x46bxhwqh" path="res://Scenes/Player/player.tscn" id="2_hwvp3"]
-[ext_resource type="PackedScene" uid="uid://bbitdda3qtwgc" path="res://Scenes/Wall/green_wall.tscn" id="3_afv7b"]
-[ext_resource type="PackedScene" uid="uid://tep1slbosllp" path="res://Scenes/Wall/color_wall.tscn" id="4_7r2dd"]
-[ext_resource type="PackedScene" uid="uid://cgho0q6qip7hk" path="res://Scenes/Orbs/color orb/green_orb.tscn" id="5_k2mw1"]
-[ext_resource type="PackedScene" uid="uid://dcdp3cxg6i4n8" path="res://Scenes/Orbs/color orb/red_orb.tscn" id="6_tjl6l"]
-[ext_resource type="PackedScene" uid="uid://cb6wjwx36r707" path="res://Scenes/Orbs/process_orb/process_complete_orb.tscn" id="7_3628d"]
-[ext_resource type="PackedScene" uid="uid://b80fa1cliat8m" path="res://Scenes/Menu/game_over_menu.tscn" id="8_irw6p"]
-[ext_resource type="PackedScene" uid="uid://bwpe4qmcgpj38" path="res://Scenes/Menu/win_menu.tscn" id="9_31phq"]
-[ext_resource type="PackedScene" uid="uid://du7bk4qk4kt0n" path="res://Scenes/enemy/bug1/bug_1.tscn" id="10_7hll7"]
+[ext_resource type="Texture2D" uid="uid://d1if78cxy647e" path="res://Sprites/hue_n_dash tilemap.png" id="1_f4pg2"]
+[ext_resource type="PackedScene" uid="uid://e77x46bxhwqh" path="res://Scenes/Player/player.tscn" id="2_62b6n"]
+[ext_resource type="PackedScene" uid="uid://tep1slbosllp" path="res://Scenes/Wall/color_wall.tscn" id="3_rs4xw"]
+[ext_resource type="PackedScene" uid="uid://bbitdda3qtwgc" path="res://Scenes/Wall/green_wall.tscn" id="4_lk57d"]
+[ext_resource type="PackedScene" uid="uid://cgho0q6qip7hk" path="res://Scenes/Orbs/color orb/green_orb.tscn" id="5_2hkqn"]
+[ext_resource type="PackedScene" uid="uid://dcdp3cxg6i4n8" path="res://Scenes/Orbs/color orb/red_orb.tscn" id="6_34erp"]
+[ext_resource type="PackedScene" uid="uid://cb6wjwx36r707" path="res://Scenes/Orbs/process_orb/process_complete_orb.tscn" id="7_k2bse"]
+[ext_resource type="PackedScene" uid="uid://b80fa1cliat8m" path="res://Scenes/Menu/game_over_menu.tscn" id="8_c7pbv"]
+[ext_resource type="PackedScene" uid="uid://bwpe4qmcgpj38" path="res://Scenes/Menu/win_menu.tscn" id="9_77l7m"]
+[ext_resource type="PackedScene" uid="uid://du7bk4qk4kt0n" path="res://Scenes/enemy/bug1/bug_1.tscn" id="10_1rr3k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rfktq"]
-texture = ExtResource("1_u5ghp")
+texture = ExtResource("1_f4pg2")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -31,38 +31,38 @@ position = Vector2(-1, 0)
 tile_map_data = PackedByteArray("AAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAD///r/AAAAAAAAAAAAAPr/AAAAAAAAAAABAPr/AAAAAAAAAAACAPr/AAAAAAAAAAADAPr/AAAAAAAAAAAEAPr/AAAAAAAAAAAFAPr/AAAAAAAAAAAGAPr/AAAAAAAAAAAHAPr/AAAAAAAAAAAIAPr/AAAAAAAAAAAJAPr/AAAAAAAAAAAKAPr/AAAAAAAAAAALAPr/AAAAAAAAAAAMAPr/AAAAAAAAAAANAPr/AAAAAAAAAAAOAPr/AAAAAAAAAAAPAPr/AAAAAAAAAAAQAPr/AAAAAAAAAAARAPr/AAAAAAAAAAASAPr/AAAAAAAAAAATAPr/AAAAAAAAAAAUAPr/AAAAAAAAAAAVAPr/AAAAAAAAAAAWAPr/AAAAAAAAAAAXAPr/AAAAAAAAAAAYAPr/AAAAAAAAAAAZAPr/AAAAAAAAAAAaAPr/AAAAAAAAAGAbAPr/AAAAAAAAAGAbAAAAAAAAAAAAAGAaAAAAAAAAAAAAAGAZAAAAAAAAAAAAAGAYAAAAAAAAAAAAAGAXAAAAAAAAAAAAAGAWAAAAAAAAAAAAAGAVAAAAAAAAAAAAAGAUAAAAAAAAAAAAAGAMAAAAAAAAAAAAAGANAAAAAAAAAAAAAGAOAAAAAAAAAAAAAGAPAAAAAAAAAAAAAGAQAAAAAAAAAAAAAGAUAAEAAAAAAAAAAGAUAAIAAAAAAAAAAGAUAAMAAAAAAAAAAGAUAAQAAAAAAAAAAGAUAAUAAAAAAAAAAGAUAAYAAAAAAAAAAGATAAYAAAAAAAAAAGASAAYAAAAAAAAAAGARAAYAAAAAAAAAAGAQAAYAAAAAAAAAAGAPAAYAAAAAAAAAAGAOAAYAAAAAAAAAAGANAAYAAAAAAAAAAGAMAAYAAAAAAAAAAGALAAYAAAAAAAAAAGAKAAYAAAAAAAAAAGAJAAYAAAAAAAAAAGAIAAYAAAAAAAAAAGAHAAYAAAAAAAAAAGAGAAYAAAAAAAAAAGAFAAYAAAAAAAAAAGAEAAYAAAAAAAAAAGADAAYAAAAAAAAAAGACAAYAAAAAAAAAAGABAAYAAAAAAAAAAGAAAAYAAAAAAAAAAGD//wYAAAAAAAAAAGD+/wYAAAAAAAAAAGD9/wYAAAAAAAAAAGD8/wYAAAAAAAAAAGD+//r/AAAAAAAAAGD9//r/AAAAAAAAAGD8//r/AAAAAAAAAGD8//v/AAAAAAAAAGD8//z/AAAAAAAAAGD8//3/AAAAAAAAAGD8//7/AAAAAAAAAGD8////AAAAAAAAAGD8/wAAAAAAAAAAAGD8/wEAAAAAAAAAAGD8/wIAAAAAAAAAAGD8/wMAAAAAAAAAAGD+/wAAAAAAAAAAAGD9/wAAAAAAAAAAAGD8/wQAAAAAAAAAAGD8/wUAAAAAAAAAAGAbAP//AAAAAAAAAAAbAP7/AAAAAAAAAAAbAP3/AAAAAAAAAAAbAPz/AAAAAAAAAAAbAPv/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_0urlm")
 
-[node name="Player" parent="." instance=ExtResource("2_hwvp3")]
+[node name="Player" parent="." instance=ExtResource("2_62b6n")]
 position = Vector2(4, -27)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="wall" type="Node" parent="."]
 
-[node name="Red_Wall" parent="wall" instance=ExtResource("4_7r2dd")]
+[node name="Red_Wall" parent="wall" instance=ExtResource("3_rs4xw")]
 position = Vector2(357, 3)
 
-[node name="green_Wall" parent="wall" instance=ExtResource("3_afv7b")]
+[node name="green_Wall" parent="wall" instance=ExtResource("4_lk57d")]
 position = Vector2(516, 12)
 rotation = 1.5707964
 
 [node name="orbs" type="Node" parent="."]
 
-[node name="GreenOrb" parent="orbs" instance=ExtResource("5_k2mw1")]
+[node name="GreenOrb" parent="orbs" instance=ExtResource("5_2hkqn")]
 position = Vector2(804, -41)
 
-[node name="RedOrb" parent="orbs" instance=ExtResource("6_tjl6l")]
+[node name="RedOrb" parent="orbs" instance=ExtResource("6_34erp")]
 position = Vector2(97, -44)
 
-[node name="ProcessCompleteOrb" parent="orbs" instance=ExtResource("7_3628d")]
+[node name="ProcessCompleteOrb" parent="orbs" instance=ExtResource("7_k2bse")]
 position = Vector2(-37, 140)
 rotation = -3.1415925
-next_level_path = "res://Scenes/Levels/level_2.tscn"
+next_level_path = "res://Levels/level_2.tscn"
 
-[node name="GameOverMenu" parent="." instance=ExtResource("8_irw6p")]
+[node name="GameOverMenu" parent="." instance=ExtResource("8_c7pbv")]
 visible = false
 
-[node name="WinMenu" parent="." instance=ExtResource("9_31phq")]
+[node name="WinMenu" parent="." instance=ExtResource("9_77l7m")]
 visible = false
 
-[node name="Bug1" parent="." instance=ExtResource("10_7hll7")]
+[node name="Bug1" parent="." instance=ExtResource("10_1rr3k")]
 position = Vector2(210, 168)

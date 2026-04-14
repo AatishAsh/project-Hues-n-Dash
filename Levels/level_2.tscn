@@ -1,20 +1,20 @@
 [gd_scene load_steps=15 format=4 uid="uid://cni20n1w0hmyu"]
 
-[ext_resource type="Texture2D" uid="uid://d1if78cxy647e" path="res://Sprites/hue_n_dash tilemap.png" id="1_0x4y1"]
-[ext_resource type="PackedScene" uid="uid://e77x46bxhwqh" path="res://Scenes/Player/player.tscn" id="2_uqiic"]
-[ext_resource type="PackedScene" uid="uid://tep1slbosllp" path="res://Scenes/Wall/color_wall.tscn" id="3_eopvx"]
-[ext_resource type="PackedScene" uid="uid://cgho0q6qip7hk" path="res://Scenes/Orbs/color orb/green_orb.tscn" id="4_t27xo"]
-[ext_resource type="PackedScene" uid="uid://dcdp3cxg6i4n8" path="res://Scenes/Orbs/color orb/red_orb.tscn" id="5_yxf76"]
-[ext_resource type="PackedScene" uid="uid://cb6wjwx36r707" path="res://Scenes/Orbs/process_orb/process_complete_orb.tscn" id="6_ia1lp"]
-[ext_resource type="PackedScene" uid="uid://daps6vjuhmri1" path="res://Scenes/Wall/blue_wall.tscn" id="7_5buja"]
-[ext_resource type="PackedScene" uid="uid://b80fa1cliat8m" path="res://Scenes/Menu/game_over_menu.tscn" id="8_wyygt"]
-[ext_resource type="PackedScene" uid="uid://bwpe4qmcgpj38" path="res://Scenes/Menu/win_menu.tscn" id="9_u87on"]
-[ext_resource type="PackedScene" uid="uid://du7bk4qk4kt0n" path="res://Scenes/enemy/bug1/bug_1.tscn" id="10_iunut"]
-[ext_resource type="PackedScene" uid="uid://ce786veh6y3o1" path="res://Scenes/Orbs/color orb/blue_orb.tscn" id="11_jd2hh"]
-[ext_resource type="PackedScene" uid="uid://bbitdda3qtwgc" path="res://Scenes/Wall/green_wall.tscn" id="12_jip10"]
+[ext_resource type="Texture2D" uid="uid://d1if78cxy647e" path="res://Sprites/hue_n_dash tilemap.png" id="1_1soli"]
+[ext_resource type="PackedScene" uid="uid://e77x46bxhwqh" path="res://Scenes/Player/player.tscn" id="2_4pbjs"]
+[ext_resource type="PackedScene" uid="uid://tep1slbosllp" path="res://Scenes/Wall/color_wall.tscn" id="3_lmqi1"]
+[ext_resource type="PackedScene" uid="uid://cgho0q6qip7hk" path="res://Scenes/Orbs/color orb/green_orb.tscn" id="4_5yfph"]
+[ext_resource type="PackedScene" uid="uid://dcdp3cxg6i4n8" path="res://Scenes/Orbs/color orb/red_orb.tscn" id="5_w6yvm"]
+[ext_resource type="PackedScene" uid="uid://cb6wjwx36r707" path="res://Scenes/Orbs/process_orb/process_complete_orb.tscn" id="6_jcvcn"]
+[ext_resource type="PackedScene" uid="uid://daps6vjuhmri1" path="res://Scenes/Wall/blue_wall.tscn" id="7_0ttnk"]
+[ext_resource type="PackedScene" uid="uid://b80fa1cliat8m" path="res://Scenes/Menu/game_over_menu.tscn" id="8_v3vm6"]
+[ext_resource type="PackedScene" uid="uid://bwpe4qmcgpj38" path="res://Scenes/Menu/win_menu.tscn" id="9_16yl7"]
+[ext_resource type="PackedScene" uid="uid://du7bk4qk4kt0n" path="res://Scenes/enemy/bug1/bug_1.tscn" id="10_3slvs"]
+[ext_resource type="PackedScene" uid="uid://ce786veh6y3o1" path="res://Scenes/Orbs/color orb/blue_orb.tscn" id="11_cnrwi"]
+[ext_resource type="PackedScene" uid="uid://bbitdda3qtwgc" path="res://Scenes/Wall/green_wall.tscn" id="12_knkse"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rfktq"]
-texture = ExtResource("1_0x4y1")
+texture = ExtResource("1_1soli")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -33,46 +33,46 @@ position = Vector2(-1, 0)
 tile_map_data = PackedByteArray("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")
 tile_set = SubResource("TileSet_0urlm")
 
-[node name="Player" parent="." instance=ExtResource("2_uqiic")]
+[node name="Player" parent="." instance=ExtResource("2_4pbjs")]
 position = Vector2(4, -27)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="wall" type="Node" parent="."]
 
-[node name="Red_Wall" parent="wall" instance=ExtResource("3_eopvx")]
+[node name="Red_Wall" parent="wall" instance=ExtResource("3_lmqi1")]
 position = Vector2(357, 3)
 
 [node name="orbs" type="Node" parent="."]
 
-[node name="GreenOrb" parent="orbs" instance=ExtResource("4_t27xo")]
+[node name="GreenOrb" parent="orbs" instance=ExtResource("4_5yfph")]
 position = Vector2(779, 142)
 
-[node name="RedOrb" parent="orbs" instance=ExtResource("5_yxf76")]
+[node name="RedOrb" parent="orbs" instance=ExtResource("5_w6yvm")]
 position = Vector2(97, -44)
 
-[node name="ProcessCompleteOrb" parent="orbs" instance=ExtResource("6_ia1lp")]
+[node name="ProcessCompleteOrb" parent="orbs" instance=ExtResource("6_jcvcn")]
 position = Vector2(-19, 124)
 rotation = -3.1415925
-next_level_path = "res://Scenes/Levels/level_3.tscn"
+next_level_path = "res://Levels/level_3.tscn"
 
-[node name="blue_wall" parent="orbs" instance=ExtResource("7_5buja")]
+[node name="blue_wall" parent="orbs" instance=ExtResource("7_0ttnk")]
 position = Vector2(1183, 3)
 
-[node name="GameOverMenu" parent="." instance=ExtResource("8_wyygt")]
+[node name="GameOverMenu" parent="." instance=ExtResource("8_v3vm6")]
 visible = false
 
-[node name="WinMenu" parent="." instance=ExtResource("9_u87on")]
+[node name="WinMenu" parent="." instance=ExtResource("9_16yl7")]
 visible = false
 
-[node name="Bug1" parent="." instance=ExtResource("10_iunut")]
+[node name="Bug1" parent="." instance=ExtResource("10_3slvs")]
 position = Vector2(246, 201)
 
-[node name="BlueOrb" parent="." instance=ExtResource("11_jd2hh")]
+[node name="BlueOrb" parent="." instance=ExtResource("11_cnrwi")]
 position = Vector2(756, -201)
 
-[node name="green_Wall" parent="." instance=ExtResource("12_jip10")]
+[node name="green_Wall" parent="." instance=ExtResource("12_knkse")]
 position = Vector2(564, 193)
 
-[node name="Bug2" parent="." instance=ExtResource("10_iunut")]
+[node name="Bug2" parent="." instance=ExtResource("10_3slvs")]
 position = Vector2(689, -152)

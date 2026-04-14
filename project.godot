@@ -16,6 +16,14 @@ run/main_scene="uid://ba1yvibrytyhu"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="uid://b8hj57fi4pktm"
 
+[autoload]
+
+CrtOverlay="*res://UI/crt_overlay.tscn"
+
+[gui]
+
+theme/custom_font="uid://dalt306jov441"
+
 [input]
 
 pick_item={
