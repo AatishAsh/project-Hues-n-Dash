@@ -1,43 +1,83 @@
-[gd_scene load_steps=5 format=3 uid="uid://du7bk4qk4kt0n"]
+[gd_scene load_steps=10 format=3 uid="uid://du7bk4qk4kt0n"]
 
 [ext_resource type="Script" uid="uid://gc7a3wdac7yy" path="res://Scripts/enemy/bug1/bug_1.gd" id="1_l6pto"]
 [ext_resource type="Texture2D" uid="uid://exehygqhsaht" path="res://Sprites/bug.png" id="2_gypfg"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6pto"]
+atlas = ExtResource("2_gypfg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gypfg"]
+atlas = ExtResource("2_gypfg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eepel"]
+atlas = ExtResource("2_gypfg")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s72yo"]
+atlas = ExtResource("2_gypfg")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4lrbx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6pto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gypfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eepel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s72yo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eepel"]
-radius = 18.0
-height = 78.0
+radius = 14.0
+height = 52.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l6pto"]
-radius = 18.0
-height = 96.0
+radius = 14.0
+height = 74.0
 
 [node name="Bug1" type="CharacterBody2D"]
 script = ExtResource("1_l6pto")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(6.000001, 4)
-scale = Vector2(0.859375, 0.84375)
-texture = ExtResource("2_gypfg")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.000001, -9.000003)
+scale = Vector2(2.7402344, 2.5942798)
+sprite_frames = SubResource("SpriteFrames_4lrbx")
+autoplay = "default"
+frame_progress = 0.31428596
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 5)
+position = Vector2(5, 6)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_eepel")
 
 [node name="killzone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-position = Vector2(6, 4)
+position = Vector2(4, 5)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_l6pto")
+debug_color = Color(0.9929573, 0, 0.2512428, 0.41960785)
 
 [node name="Raycastes" type="Node2D" parent="."]
 
 [node name="WallCheck" type="RayCast2D" parent="Raycastes"]
-target_position = Vector2(41, 5)
+position = Vector2(1, 6)
+target_position = Vector2(31, 2)
 
 [node name="LedgeCheck" type="RayCast2D" parent="Raycastes"]
-position = Vector2(1, 1)
-target_position = Vector2(43, 33)
+position = Vector2(1, 6)
+target_position = Vector2(30, 22)
 
 [connection signal="body_entered" from="killzone" to="." method="_on_killzone_body_entered"]

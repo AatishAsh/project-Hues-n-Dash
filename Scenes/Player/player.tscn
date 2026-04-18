@@ -1,9 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://e77x46bxhwqh"]
+[gd_scene load_steps=37 format=3 uid="uid://e77x46bxhwqh"]
 
 [ext_resource type="Script" uid="uid://cegxak3hard5" path="res://Scripts/Player/player.gd" id="1_4ntmi"]
-[ext_resource type="PackedScene" uid="uid://c1rk2a0o6hv5r" path="res://Scenes/Orbs/process_orb/bullet.tscn" id="2_mtuoh"]
+[ext_resource type="PackedScene" uid="uid://c1rk2a0o6hv5r" path="res://Scenes/Orbs/special_orb/bullet.tscn" id="2_mtuoh"]
 [ext_resource type="Texture2D" uid="uid://drn8hcjv7tpsi" path="res://Sprites/guy_idle_jump.png" id="2_xpcdj"]
 [ext_resource type="PackedScene" uid="uid://jl5fwg8ibbli" path="res://Scenes/Menu/pause_menu.tscn" id="3_xpcdj"]
+[ext_resource type="Texture2D" uid="uid://rwmmjrj2n1xg" path="res://Sprites/special_orbs.png" id="5_htcer"]
+[ext_resource type="AudioStream" uid="uid://cjtmv7lajdpm5" path="res://Audio/freesound_community-game-over-arcade-6435.mp3" id="6_dd0ac"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mtuoh"]
 atlas = ExtResource("2_xpcdj")
@@ -234,8 +236,19 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3wgy"]
-radius = 15.0
+radius = 9.0
 height = 60.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ahak"]
+atlas = ExtResource("5_htcer")
+region = Rect2(429, 44, 38, 40)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rukb4"]
+bg_color = Color(0, 0.25490198, 0.95686275, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rukb4"]
+atlas = ExtResource("5_htcer")
+region = Rect2(173, 44, 38, 40)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -1)
@@ -272,6 +285,71 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "60"
 
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PowerupUI" type="HBoxContainer" parent="HUD/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PowerupIcon" type="TextureRect" parent="HUD/MarginContainer/PowerupUI"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_2ahak")
+
+[node name="PowerupBar" type="ProgressBar" parent="HUD/MarginContainer/PowerupUI"]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_rukb4")
+show_percentage = false
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -232.0
+offset_top = -136.0
+offset_bottom = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="DoubleJumpUI" type="HBoxContainer" parent="HUD/MarginContainer2"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="DoubleJumpIcon" type="TextureRect" parent="HUD/MarginContainer2/DoubleJumpUI"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_rukb4")
+
+[node name="DoubleJumpBar" type="ProgressBar" parent="HUD/MarginContainer2/DoubleJumpUI"]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_rukb4")
+show_percentage = false
+
 [node name="LevelTimer" type="Timer" parent="."]
 
 [node name="PowerupTimer" type="Timer" parent="."]
@@ -279,5 +357,13 @@ text = "60"
 [node name="ShootPoint" type="Marker2D" parent="."]
 position = Vector2(0, -23)
 
+[node name="DoubleJumpTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("6_dd0ac")
+
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
 [connection signal="timeout" from="PowerupTimer" to="." method="_on_powerup_timer_timeout"]
+[connection signal="timeout" from="DoubleJumpTimer" to="." method="_on_double_jump_timer_timeout"]

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bbitdda3qtwgc" path="res://Scenes/Wall/green_wall.tscn" id="4_lk57d"]
 [ext_resource type="PackedScene" uid="uid://cgho0q6qip7hk" path="res://Scenes/Orbs/color orb/green_orb.tscn" id="5_2hkqn"]
 [ext_resource type="PackedScene" uid="uid://dcdp3cxg6i4n8" path="res://Scenes/Orbs/color orb/red_orb.tscn" id="6_34erp"]
-[ext_resource type="PackedScene" uid="uid://cb6wjwx36r707" path="res://Scenes/Orbs/process_orb/process_complete_orb.tscn" id="7_k2bse"]
+[ext_resource type="PackedScene" uid="uid://cb6wjwx36r707" path="res://Scenes/Orbs/special_orb/process_complete_orb.tscn" id="7_k2bse"]
 [ext_resource type="PackedScene" uid="uid://b80fa1cliat8m" path="res://Scenes/Menu/game_over_menu.tscn" id="8_c7pbv"]
 [ext_resource type="PackedScene" uid="uid://bwpe4qmcgpj38" path="res://Scenes/Menu/win_menu.tscn" id="9_77l7m"]
 [ext_resource type="PackedScene" uid="uid://du7bk4qk4kt0n" path="res://Scenes/enemy/bug1/bug_1.tscn" id="10_1rr3k"]

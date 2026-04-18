@@ -2,6 +2,11 @@ extends Area2D
 
 @export var color : String = "red"
 
+func _ready():
+	var tween = create_tween().set_loops()
+	tween.tween_property($Sprite2D, "position:y", -5.0, 0.8).as_relative().set_trans(Tween.TRANS_SINE)
+	tween.tween_property($Sprite2D, "position:y", 5.0, 0.8).as_relative().set_trans(Tween.TRANS_SINE)
+	
 func _on_body_entered(body):
 	# Check if the thing that touched the orb is the player
 	if body.has_method("pickup_orb"):

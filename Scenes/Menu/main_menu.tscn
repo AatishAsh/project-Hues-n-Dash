@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://ba1yvibrytyhu"]
+[gd_scene load_steps=21 format=3 uid="uid://ba1yvibrytyhu"]
 
 [ext_resource type="Texture2D" uid="uid://ccb0e8jlunxv4" path="res://Sprites/tittle_logo.png" id="1_bkwd7"]
 [ext_resource type="Script" uid="uid://dnebrjodpmcgi" path="res://Scripts/UI/main_menu.gd" id="1_tself"]
 [ext_resource type="StyleBox" uid="uid://td6ogj4pjrul" path="res://Scenes/Menu/main_menu.tres" id="3_7jtkx"]
 [ext_resource type="AudioStream" uid="uid://bt7v5f4kr8mfu" path="res://Audio/viacheslavstarostin-game-gaming-video-game-music-471936.mp3" id="4_vmek6"]
+[ext_resource type="Texture2D" uid="uid://drn8hcjv7tpsi" path="res://Sprites/guy_idle_jump.png" id="5_ab7fb"]
+[ext_resource type="PackedScene" uid="uid://cb6wjwx36r707" path="res://Scenes/Orbs/special_orb/process_complete_orb.tscn" id="6_gpijq"]
 
 [sub_resource type="Gradient" id="Gradient_mux1j"]
 colors = PackedColorArray(0, 0.9529412, 0, 1, 0, 0.9529412, 0, 1)
@@ -90,6 +92,28 @@ expand_margin_top = 2.0
 expand_margin_right = 15.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ab7fb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab7fb"]
+atlas = ExtResource("5_ab7fb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpijq"]
+atlas = ExtResource("5_ab7fb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w1xia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab7fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpijq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -193,7 +217,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_pn3xf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vmek6")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_gpijq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_pn3xf")
-text = "START_PROGRAM"
+text = "START_GAME"
 
 [node name="Spacer2" type="Control" parent="MarginContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
@@ -208,7 +232,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_7jtkx")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vmek6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ab7fb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ab7fb")
-text = "QUIT_PROGRAM"
+text = "QUIT_GAME"
 
 [node name="TittleLogo" type="Sprite2D" parent="MarginContainer/Panel/VBoxContainer"]
 position = Vector2(584, 35.875)
@@ -229,6 +253,18 @@ offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Made by Aatish A"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(295, 543)
+scale = Vector2(2.90625, 2.90625)
+sprite_frames = SubResource("SpriteFrames_w1xia")
+autoplay = "default"
+frame_progress = 0.40237603
+
+[node name="ProcessCompleteOrb" parent="." instance=ExtResource("6_gpijq")]
+position = Vector2(884, 544)
 
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

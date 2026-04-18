@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1rk2a0o6hv5r"]
+
+[ext_resource type="Script" uid="uid://dfnqrvgk65q7k" path="res://Scripts/process_complete_orb/bullet.gd" id="1_wglij"]
+
+[sub_resource type="Gradient" id="Gradient_wglij"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_01e6f"]
+gradient = SubResource("Gradient_wglij")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snrt0"]
+size = Vector2(12, 12)
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_wglij")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-4, -5)
+rect = Rect2(-2, -1, 12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.7252903e-07, -4.4703484e-07)
+scale = Vector2(0.3157895, 0.29999998)
+texture = SubResource("GradientTexture1D_01e6f")
+region_enabled = true
+region_rect = Rect2(429, 44, 38, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_snrt0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

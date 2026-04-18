@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://d4e8q4i2yuyqw"]
+[gd_scene load_steps=19 format=4 uid="uid://d4e8q4i2yuyqw"]
 
 [ext_resource type="Texture2D" uid="uid://d1if78cxy647e" path="res://Sprites/hue_n_dash tilemap.png" id="1_m47b0"]
 [ext_resource type="PackedScene" uid="uid://tep1slbosllp" path="res://Scenes/Wall/color_wall.tscn" id="2_x7gsr"]
@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://daps6vjuhmri1" path="res://Scenes/Wall/blue_wall.tscn" id="4_25373"]
 [ext_resource type="PackedScene" uid="uid://cgho0q6qip7hk" path="res://Scenes/Orbs/color orb/green_orb.tscn" id="5_vybpl"]
 [ext_resource type="PackedScene" uid="uid://dcdp3cxg6i4n8" path="res://Scenes/Orbs/color orb/red_orb.tscn" id="6_f6crn"]
-[ext_resource type="PackedScene" uid="uid://cb6wjwx36r707" path="res://Scenes/Orbs/process_orb/process_complete_orb.tscn" id="7_k35fw"]
-[ext_resource type="PackedScene" uid="uid://bwelrcgb3vjv0" path="res://Scenes/Orbs/process_orb/jump_orb.tscn" id="8_c02se"]
+[ext_resource type="PackedScene" uid="uid://cb6wjwx36r707" path="res://Scenes/Orbs/special_orb/process_complete_orb.tscn" id="7_k35fw"]
+[ext_resource type="PackedScene" uid="uid://bwelrcgb3vjv0" path="res://Scenes/Orbs/special_orb/jump_orb.tscn" id="8_c02se"]
 [ext_resource type="PackedScene" uid="uid://ce786veh6y3o1" path="res://Scenes/Orbs/color orb/blue_orb.tscn" id="9_1537k"]
 [ext_resource type="PackedScene" uid="uid://b80fa1cliat8m" path="res://Scenes/Menu/game_over_menu.tscn" id="10_5o5kr"]
 [ext_resource type="PackedScene" uid="uid://bawbqosv8f5ri" path="res://Scenes/Orbs/color orb/yellow_orb.tscn" id="10_uk1uv"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://du7bk4qk4kt0n" path="res://Scenes/enemy/bug1/bug_1.tscn" id="12_2jyfw"]
 [ext_resource type="PackedScene" uid="uid://e77x46bxhwqh" path="res://Scenes/Player/player.tscn" id="13_308mu"]
 [ext_resource type="PackedScene" uid="uid://dk7473qetueys" path="res://Scenes/Wall/yellow_wall.tscn" id="15_25373"]
+[ext_resource type="PackedScene" uid="uid://dldvn0w86pl8l" path="res://Scenes/Orbs/special_orb/shoot_orb.tscn" id="16_25373"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rfktq"]
 texture = ExtResource("1_m47b0")
@@ -58,21 +59,13 @@ position = Vector2(49, -227)
 [node name="ProcessCompleteOrb" parent="orbs" instance=ExtResource("7_k35fw")]
 position = Vector2(1169, -61)
 rotation = -3.1415925
+next_level_path = "res://Levels/level_6.tscn"
 
 [node name="JumpOrb" parent="orbs" instance=ExtResource("8_c02se")]
 position = Vector2(-75, -29)
 
-[node name="JumpOrb2" parent="orbs" instance=ExtResource("8_c02se")]
-position = Vector2(-215, -162)
-
 [node name="BlueOrb2" parent="orbs" instance=ExtResource("9_1537k")]
 position = Vector2(447, -417)
-
-[node name="JumpOrb4" parent="orbs" instance=ExtResource("8_c02se")]
-position = Vector2(-136, -318)
-
-[node name="JumpOrb5" parent="orbs" instance=ExtResource("8_c02se")]
-position = Vector2(-223, -478)
 
 [node name="BlueOrb3" parent="orbs" instance=ExtResource("9_1537k")]
 position = Vector2(495, -224)
@@ -107,3 +100,6 @@ position = Vector2(143, -9)
 
 [node name="Yellow_Wall" parent="." instance=ExtResource("15_25373")]
 position = Vector2(442, -185)
+
+[node name="ShootOrb" parent="." instance=ExtResource("16_25373")]
+position = Vector2(-15, -32)

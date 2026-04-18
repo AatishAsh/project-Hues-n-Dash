@@ -6,8 +6,14 @@ extends Area2D
 # This lets you change how high the orb launches you from the Inspector!
 @export var bounce_power : float = -1000.0 
 
+func _ready():
+	var tween = create_tween().set_loops()
+	tween.tween_property($Sprite2D, "position:y", -5.0, 1.0).as_relative().set_trans(Tween.TRANS_SINE)
+	tween.tween_property($Sprite2D, "position:y", 5.0, 1.0).as_relative().set_trans(Tween.TRANS_SINE)
+	
+	
 func _on_body_entered(body: Node2D) -> void:
-	# Check if the player has our new double jump function
+	# Check if the player has double jump function
 	if body.has_method("grant_double_jump"):
 		body.grant_double_jump() 
 		# Hide the orb and start the respawn timer (Keep your existing deactivate code!)
@@ -17,11 +23,8 @@ func _on_body_entered(body: Node2D) -> void:
 func deactivate():
 	# 1. Hide the orb visually
 	sprite.visible = false
-	
 	# 2. Turn off the collision so the player can't touch it while invisible.
-	# We MUST use set_deferred when disabling collisions inside a physics callback!
 	collision.set_deferred("disabled", true)
-	
 	# 3. Start the countdown to bring it back
 	respawn_timer.start()
 

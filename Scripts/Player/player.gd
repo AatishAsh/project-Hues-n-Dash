@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed := 200
 @export var jump_force := -400
 var can_double_jump : bool = false
+@export var double_jump_duration: float = 5.0
 @export var gravity := 900
 @onready var sprite: AnimatedSprite2D= $AnimatedSprite2D
 #menu
@@ -16,7 +17,17 @@ var can_double_jump : bool = false
 # player status
 var state : String = "idle"
 var color : String = "default"
-#powerups
+#powerups/ui
+@onready var powerup_ui: HBoxContainer = $HUD/MarginContainer/PowerupUI
+@onready var powerup_icon: TextureRect = $HUD/MarginContainer/PowerupUI/PowerupIcon
+@onready var powerup_bar: ProgressBar = $HUD/MarginContainer/PowerupUI/PowerupBar
+@onready var powerup_timer: Timer = $PowerupTimer
+@onready var double_jump_ui: HBoxContainer = $HUD/MarginContainer2/DoubleJumpUI
+@onready var double_jump_icon: TextureRect = $HUD/MarginContainer2/DoubleJumpUI/DoubleJumpIcon
+@onready var double_jump_bar: ProgressBar = $HUD/MarginContainer2/DoubleJumpUI/DoubleJumpBar
+@onready var double_jump_timer: Timer = $DoubleJumpTimer
+
+#-poweups---
 @export var bullet_scene: PackedScene 
 @export var powerup_duration: float = 10.0 
 var can_shoot: bool = false
@@ -27,7 +38,9 @@ var carrying_item := false
 func _ready():
 	level_timer.wait_time = level_time
 	level_timer.start()
-	
+	powerup_ui.hide()
+	double_jump_ui.hide()
+
 func _physics_process(delta):
 
 	time_label.text = "Time: " + str(int(level_timer.time_left))
@@ -59,6 +72,9 @@ func handle_movement():
 		facing_direction = -1
 
 func shoot():
+	# If the timer is actively running, shrink the UI bar to match it
+	if not powerup_timer.is_stopped():
+		powerup_bar.value = powerup_timer.time_left
 	if Input.is_action_just_pressed("shoot") and can_shoot:
 		# 1. Create a copy of the bullet
 		var bullet = bullet_scene.instantiate()
@@ -71,30 +87,53 @@ func grant_shoot_power():
 	# Start the 10-second countdown
 	$PowerupTimer.start(powerup_duration)
 	print("Weapon acquired! 10 seconds on the clock!")
+	powerup_bar.max_value = powerup_duration # Set the bar's max to 10 seconds
+	powerup_bar.value = powerup_duration     # Fill the bar completely
+	powerup_ui.show()                        # Make it visible on screen
 
 func _on_powerup_timer_timeout():
 	can_shoot = false
+	powerup_ui.hide()
 	print("Powerup ended!")
 
 
 func handle_jump():
 
+	if is_on_floor():
+		if not double_jump_timer.is_stopped():
+			can_double_jump = true  
+		else:
+			can_double_jump = false 
+
+	# 2. THE JUMP LOGIC
 	if Input.is_action_just_pressed("jump"): 
 		if is_on_floor():
 			# Normal jump from the ground
-			velocity.y = -400 # (Use your jump variable here)
+			velocity.y = -400 
+			
 		elif can_double_jump:
 			# Mid-air double jump!
 			velocity.y = -400 
-			can_double_jump = false # Consume the charge so they can't fly forever
+			# We put this back so they only get ONE air jump before touching the floor again!
+			can_double_jump = false
 			
+	# Add this right below it!
+	if not double_jump_timer.is_stopped():
+		double_jump_bar.value = double_jump_timer.time_left
+		
 # The orb will call this when touched
 func grant_double_jump():
 	can_double_jump = true
 	print("Double jump charged!")
+	double_jump_timer.start(double_jump_duration)
 	
-	 #Make the player turn blue so they know they are charged!
-	#$Sprite2D.modulate = Color(0.5, 0.8, 1.0)
+	# --- UI CODE ---
+	double_jump_bar.max_value = double_jump_duration
+	double_jump_bar.value = double_jump_duration
+	double_jump_ui.show()
+
+func _on_double_jump_timer_timeout() -> void:
+	double_jump_ui.hide()
 
 func update_state():
 
@@ -147,9 +186,9 @@ func win(target_level: String):
 	win_menu.show()
 	
 func die(reason: String = "$YOU_HAVE_DIED!_"):
+	$DeathSound.play()
 	print("Player dead. Reason: ", reason)
 	get_tree().paused = true
-	
 	# Send the custom message to the menu before showing it
 	game_over_menu.set_title(reason) 
 	game_over_menu.show()

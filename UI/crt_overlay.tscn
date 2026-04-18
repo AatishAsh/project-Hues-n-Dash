@@ -4,9 +4,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5imoa"]
 shader = ExtResource("1_8qn4w")
-shader_parameter/scanline_count = 233.750011103125
-shader_parameter/curvature = 5.2810002508475
-shader_parameter/vignette_multiplier = 5.0
+shader_parameter/scanline_count = 351.8750167140625
+shader_parameter/curvature = 4.00000019
+shader_parameter/vignette_multiplier = 2.0
 
 [node name="CRTOverlay" type="CanvasLayer"]
 layer = 100
