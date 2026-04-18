@@ -41,3 +41,6 @@ func _on_killzone_body_entered(body: Node2D) -> void:
 	if body.has_method("die"):
 		print("Enemy caught the player!")
 		body.die()
+		
+func destroy_enemy():
+	queue_free()

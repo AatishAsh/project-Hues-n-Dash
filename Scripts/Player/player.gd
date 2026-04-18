@@ -16,7 +16,11 @@ var can_double_jump : bool = false
 # player status
 var state : String = "idle"
 var color : String = "default"
-
+#powerups
+@export var bullet_scene: PackedScene 
+@export var powerup_duration: float = 10.0 
+var can_shoot: bool = false
+var facing_direction: int = 1 # Tracks which way the player is looking
 # single item rule
 var carrying_item := false
 
@@ -32,7 +36,7 @@ func _physics_process(delta):
 	handle_jump()
 	update_state()
 	update_animation()
-
+	shoot()
 	move_and_slide()
 
 func apply_gravity(delta):
@@ -49,6 +53,28 @@ func handle_movement():
 
 	if direction != 0:
 		sprite.flip_h = direction < 0
+	if Input.is_action_pressed("move_right"):
+		facing_direction = 1
+	elif Input.is_action_pressed("move_left"):
+		facing_direction = -1
+
+func shoot():
+	if Input.is_action_just_pressed("shoot") and can_shoot:
+		# 1. Create a copy of the bullet
+		var bullet = bullet_scene.instantiate()
+		get_parent().add_child(bullet)
+		bullet.global_position =$ShootPoint.global_position
+		bullet.direction = facing_direction
+
+func grant_shoot_power():
+	can_shoot = true
+	# Start the 10-second countdown
+	$PowerupTimer.start(powerup_duration)
+	print("Weapon acquired! 10 seconds on the clock!")
+
+func _on_powerup_timer_timeout():
+	can_shoot = false
+	print("Powerup ended!")
 
 
 func handle_jump():
@@ -67,7 +93,7 @@ func grant_double_jump():
 	can_double_jump = true
 	print("Double jump charged!")
 	
-	# BONUS POLISH: Make the player turn blue so they know they are charged!
+	 #Make the player turn blue so they know they are charged!
 	#$Sprite2D.modulate = Color(0.5, 0.8, 1.0)
 
 func update_state():

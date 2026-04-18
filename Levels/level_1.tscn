@@ -23,7 +23,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rfktq")
 
 [node name="level1" type="Node2D"]
-position = Vector2(2, 2)
+position = Vector2(4, 2)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = 1

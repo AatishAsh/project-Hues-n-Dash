@@ -1,11 +1,16 @@
 extends CanvasLayer
-
+@onready var retry: Button = $ColorRect/Panel/VBoxContainer/Retry
 @onready var title_label = $ColorRect/Panel/VBoxContainer/TitleLabel
 func _ready():
 	# Hide the menu by default when the level starts
 	hide()
+	visibility_changed.connect(_on_visibility_changed)
+	
+func _on_visibility_changed():
+	if visible:
+		retry.grab_focus()
 
-# This is the new function to change the text dynamically
+#function to change the text dynamically
 func set_title(message: String):
 	title_label.text = message
 

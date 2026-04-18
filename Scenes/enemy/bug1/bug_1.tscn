@@ -9,7 +9,7 @@ height = 78.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l6pto"]
 radius = 18.0
-height = 92.0
+height = 96.0
 
 [node name="Bug1" type="CharacterBody2D"]
 script = ExtResource("1_l6pto")

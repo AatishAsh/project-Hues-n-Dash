@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://tep1slbosllp" path="res://Scenes/Wall/color_wall.tscn" id="1_3qkxm"]
 
 [node name="red_Wall" instance=ExtResource("1_3qkxm")]
+
+[node name="ColorRect" parent="." index="0"]
+color = Color(0.9529412, 0, 0.03137255, 1)

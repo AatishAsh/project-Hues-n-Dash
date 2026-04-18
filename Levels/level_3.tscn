@@ -3,15 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://d1if78cxy647e" path="res://Sprites/hue_n_dash tilemap.png" id="1_md4x4"]
 [ext_resource type="PackedScene" uid="uid://e77x46bxhwqh" path="res://Scenes/Player/player.tscn" id="2_1hf40"]
 [ext_resource type="PackedScene" uid="uid://tep1slbosllp" path="res://Scenes/Wall/color_wall.tscn" id="3_13yca"]
-[ext_resource type="PackedScene" uid="uid://bbitdda3qtwgc" path="res://Scenes/Wall/green_wall.tscn" id="4_8dmpc"]
 [ext_resource type="PackedScene" uid="uid://daps6vjuhmri1" path="res://Scenes/Wall/blue_wall.tscn" id="5_anjjd"]
-[ext_resource type="PackedScene" uid="uid://cgho0q6qip7hk" path="res://Scenes/Orbs/color orb/green_orb.tscn" id="6_ocbj8"]
 [ext_resource type="PackedScene" uid="uid://dcdp3cxg6i4n8" path="res://Scenes/Orbs/color orb/red_orb.tscn" id="7_r8neg"]
 [ext_resource type="PackedScene" uid="uid://cb6wjwx36r707" path="res://Scenes/Orbs/process_orb/process_complete_orb.tscn" id="8_rcyh2"]
 [ext_resource type="PackedScene" uid="uid://ce786veh6y3o1" path="res://Scenes/Orbs/color orb/blue_orb.tscn" id="9_341pv"]
 [ext_resource type="PackedScene" uid="uid://b80fa1cliat8m" path="res://Scenes/Menu/game_over_menu.tscn" id="10_wnlxl"]
 [ext_resource type="PackedScene" uid="uid://bwpe4qmcgpj38" path="res://Scenes/Menu/win_menu.tscn" id="11_jgaqf"]
+[ext_resource type="PackedScene" uid="uid://dk7473qetueys" path="res://Scenes/Wall/yellow_wall.tscn" id="12_7cdb2"]
 [ext_resource type="PackedScene" uid="uid://bwelrcgb3vjv0" path="res://Scenes/Orbs/process_orb/jump_orb.tscn" id="12_x66yp"]
+[ext_resource type="PackedScene" uid="uid://bawbqosv8f5ri" path="res://Scenes/Orbs/color orb/yellow_orb.tscn" id="13_2urlj"]
 [ext_resource type="PackedScene" uid="uid://du7bk4qk4kt0n" path="res://Scenes/enemy/bug1/bug_1.tscn" id="13_8ve8p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rfktq"]
@@ -44,16 +44,10 @@ position = Vector2(4, -27)
 [node name="Red_Wall" parent="wall" instance=ExtResource("3_13yca")]
 position = Vector2(357, 3)
 
-[node name="green_Wall" parent="wall" instance=ExtResource("4_8dmpc")]
-position = Vector2(1766, 3)
-
 [node name="blue_wall" parent="wall" instance=ExtResource("5_anjjd")]
 position = Vector2(1183, 3)
 
 [node name="orbs" type="Node" parent="."]
-
-[node name="GreenOrb" parent="orbs" instance=ExtResource("6_ocbj8")]
-position = Vector2(1377, -231)
 
 [node name="RedOrb" parent="orbs" instance=ExtResource("7_r8neg")]
 position = Vector2(97, -44)
@@ -61,6 +55,7 @@ position = Vector2(97, -44)
 [node name="ProcessCompleteOrb" parent="orbs" instance=ExtResource("8_rcyh2")]
 position = Vector2(1974, -37)
 rotation = -3.1415925
+next_level_path = "res://Levels/level_4.tscn"
 
 [node name="BlueOrb" parent="orbs" instance=ExtResource("9_341pv")]
 position = Vector2(758, -199)
@@ -72,7 +67,13 @@ visible = false
 visible = false
 
 [node name="JumpOrb" parent="." instance=ExtResource("12_x66yp")]
-position = Vector2(1710, -46)
+position = Vector2(1555, -49)
 
 [node name="Bug1" parent="." instance=ExtResource("13_8ve8p")]
 position = Vector2(778, -152)
+
+[node name="Yellow_Wall" parent="." instance=ExtResource("12_7cdb2")]
+position = Vector2(1768, 3)
+
+[node name="YellowOrb" parent="." instance=ExtResource("13_2urlj")]
+position = Vector2(1381, -221)

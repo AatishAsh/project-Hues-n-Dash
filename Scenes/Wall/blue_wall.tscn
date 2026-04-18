@@ -6,4 +6,4 @@
 required_color = "blue"
 
 [node name="ColorRect" parent="." index="0"]
-color = Color(0.36244613, 0.5928512, 1, 1)
+color = Color(0, 0.25490198, 0.95686275, 1)
