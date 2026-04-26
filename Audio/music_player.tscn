@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bunvroivuxuqd"]
+
+[ext_resource type="AudioStream" uid="uid://be7s1qv81x7gh" path="res://Audio/djartmusic-fun-with-my-8-bit-game-301278.mp3" id="1_l168q"]
+[ext_resource type="Script" uid="uid://n6sfvsctqocq" path="res://Scripts/audio/music_player.gd" id="2_c8bn8"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" unique_id=418718428]
+process_mode = 3
+stream = ExtResource("1_l168q")
+autoplay = true
+script = ExtResource("2_c8bn8")

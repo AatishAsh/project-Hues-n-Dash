@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://du7bk4qk4kt0n"]
+[gd_scene load_steps=15 format=3 uid="uid://du7bk4qk4kt0n"]
 
 [ext_resource type="Script" uid="uid://gc7a3wdac7yy" path="res://Scripts/enemy/bug1/bug_1.gd" id="1_l6pto"]
+[ext_resource type="Texture2D" uid="uid://d15x5d8ygmgsl" path="res://Sprites/bug_dead.png" id="2_eepel"]
 [ext_resource type="Texture2D" uid="uid://exehygqhsaht" path="res://Sprites/bug.png" id="2_gypfg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l6pto"]
@@ -19,6 +20,22 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("2_gypfg")
 region = Rect2(32, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lrbx"]
+atlas = ExtResource("2_eepel")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6xfx"]
+atlas = ExtResource("2_eepel")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asg81"]
+atlas = ExtResource("2_eepel")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbtf8"]
+atlas = ExtResource("2_eepel")
+region = Rect2(32, 32, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_4lrbx"]
 animations = [{
 "frames": [{
@@ -35,8 +52,25 @@ animations = [{
 "texture": SubResource("AtlasTexture_s72yo")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Walk",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lrbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6xfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asg81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbtf8")
+}],
+"loop": false,
+"name": &"death",
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eepel"]
@@ -54,8 +88,8 @@ script = ExtResource("1_l6pto")
 position = Vector2(3.000001, -9.000003)
 scale = Vector2(2.7402344, 2.5942798)
 sprite_frames = SubResource("SpriteFrames_4lrbx")
-autoplay = "default"
-frame_progress = 0.31428596
+animation = &"death"
+autoplay = "Walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, 6)

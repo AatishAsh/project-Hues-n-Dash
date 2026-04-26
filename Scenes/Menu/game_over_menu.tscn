@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b80fa1cliat8m"]
+[gd_scene format=3 uid="uid://b80fa1cliat8m"]
 
 [ext_resource type="Script" uid="uid://ebi06xhywksr" path="res://Scripts/UI/game_over_menu.gd" id="1_jobbv"]
 [ext_resource type="StyleBox" uid="uid://td6ogj4pjrul" path="res://Scenes/Menu/main_menu.tres" id="2_uuamm"]
@@ -73,12 +73,12 @@ expand_margin_right = 5.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ceu4"]
 
-[node name="GameOverMenu" type="CanvasLayer"]
+[node name="GameOverMenu" type="CanvasLayer" unique_id=1978622456]
 process_mode = 3
 layer = 10
 script = ExtResource("1_jobbv")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=227383287]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -88,7 +88,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.8352941)
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect" unique_id=254584114]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -102,7 +102,7 @@ offset_bottom = 205.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="ColorRect"]
+[node name="Panel" type="Panel" parent="ColorRect" unique_id=1865947247]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -117,7 +117,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("2_uuamm")
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect/Panel"]
+[node name="TextureRect" type="TextureRect" parent="ColorRect/Panel" unique_id=2146122443]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -129,7 +129,7 @@ offset_bottom = 61.25
 grow_horizontal = 2
 texture = SubResource("GradientTexture1D_h83e1")
 
-[node name="title" type="Label" parent="ColorRect/Panel/TextureRect"]
+[node name="title" type="Label" parent="ColorRect/Panel/TextureRect" unique_id=329150845]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 12.0
@@ -139,7 +139,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 34
 text = "C:/GAME_OVER.EXE"
 
-[node name="X" type="Button" parent="ColorRect/Panel/TextureRect"]
+[node name="X" type="Button" parent="ColorRect/Panel/TextureRect" unique_id=735563414]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -159,7 +159,7 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_7ceu4")
 text = "X"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Panel" unique_id=908299864]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -175,18 +175,18 @@ grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="TitleLabel" type="Label" parent="ColorRect/Panel/VBoxContainer"]
+[node name="TitleLabel" type="Label" parent="ColorRect/Panel/VBoxContainer" unique_id=1576483830]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 0.03529412, 0, 1)
 theme_override_font_sizes/font_size = 51
 text = "$YOU_HAVE_DIED"
 
-[node name="Spacer2" type="Control" parent="ColorRect/Panel/VBoxContainer"]
+[node name="Spacer2" type="Control" parent="ColorRect/Panel/VBoxContainer" unique_id=1374591373]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="Retry" type="Button" parent="ColorRect/Panel/VBoxContainer"]
+[node name="Retry" type="Button" parent="ColorRect/Panel/VBoxContainer" unique_id=1299716625]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.9529412, 0, 1)
@@ -199,11 +199,11 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_h83e1")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_45qsb")
 text = "RETRY_LEVEL"
 
-[node name="Spacer3" type="Control" parent="ColorRect/Panel/VBoxContainer"]
+[node name="Spacer3" type="Control" parent="ColorRect/Panel/VBoxContainer" unique_id=596303206]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="Quit" type="Button" parent="ColorRect/Panel/VBoxContainer"]
+[node name="Quit" type="Button" parent="ColorRect/Panel/VBoxContainer" unique_id=129731555]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.9529412, 0, 1)
@@ -216,3 +216,4 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_7ceu4")
 text = "MAIN_MENU"
 
 [connection signal="pressed" from="ColorRect/Panel/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

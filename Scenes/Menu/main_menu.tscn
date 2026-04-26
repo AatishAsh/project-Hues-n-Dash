@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://ba1yvibrytyhu"]
+[gd_scene format=3 uid="uid://ba1yvibrytyhu"]
 
 [ext_resource type="Texture2D" uid="uid://ccb0e8jlunxv4" path="res://Sprites/tittle_logo.png" id="1_bkwd7"]
 [ext_resource type="Script" uid="uid://dnebrjodpmcgi" path="res://Scripts/UI/main_menu.gd" id="1_tself"]
 [ext_resource type="StyleBox" uid="uid://td6ogj4pjrul" path="res://Scenes/Menu/main_menu.tres" id="3_7jtkx"]
-[ext_resource type="AudioStream" uid="uid://bt7v5f4kr8mfu" path="res://Audio/viacheslavstarostin-game-gaming-video-game-music-471936.mp3" id="4_vmek6"]
 [ext_resource type="Texture2D" uid="uid://drn8hcjv7tpsi" path="res://Sprites/guy_idle_jump.png" id="5_ab7fb"]
 [ext_resource type="PackedScene" uid="uid://cb6wjwx36r707" path="res://Scenes/Orbs/special_orb/process_complete_orb.tscn" id="6_gpijq"]
 
@@ -115,7 +114,7 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=271150318]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 0
@@ -124,11 +123,7 @@ offset_bottom = 40.0
 size_flags_horizontal = 4
 script = ExtResource("1_tself")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_vmek6")
-autoplay = true
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=202115303]
 z_index = -1
 layout_mode = 1
 anchors_preset = 8
@@ -143,11 +138,11 @@ offset_bottom = 565.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="MarginContainer"]
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=1502493336]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("3_7jtkx")
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel" unique_id=857020103]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -159,7 +154,7 @@ offset_bottom = 60.5
 grow_horizontal = 2
 texture = SubResource("GradientTexture1D_vmek6")
 
-[node name="title" type="Label" parent="MarginContainer/Panel/TextureRect"]
+[node name="title" type="Label" parent="MarginContainer/Panel/TextureRect" unique_id=1224376924]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 12.0
@@ -169,7 +164,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 34
 text = "C:/Main_Menu.exe"
 
-[node name="X" type="Button" parent="MarginContainer/Panel/TextureRect"]
+[node name="X" type="Button" parent="MarginContainer/Panel/TextureRect" unique_id=2112301730]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -189,14 +184,14 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_gpijq")
 text = "X"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel" unique_id=1516596311]
 layout_mode = 1
 offset_left = -233.0
 offset_top = -111.0
 offset_right = 919.0
 offset_bottom = 474.0
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer" unique_id=1393722180]
 visible = false
 custom_minimum_size = Vector2(50, 80)
 layout_mode = 2
@@ -204,11 +199,11 @@ texture = ExtResource("1_bkwd7")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Spacer" type="Control" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="Spacer" type="Control" parent="MarginContainer/Panel/VBoxContainer" unique_id=1921552444]
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 
-[node name="Start" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="Start" type="Button" parent="MarginContainer/Panel/VBoxContainer" unique_id=2007912252]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.94509804, 0, 1)
@@ -219,11 +214,26 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_gpijq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_pn3xf")
 text = "START_GAME"
 
-[node name="Spacer2" type="Control" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="Spacer3" type="Control" parent="MarginContainer/Panel/VBoxContainer" unique_id=280419937]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="Quit" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="Levels" type="Button" parent="MarginContainer/Panel/VBoxContainer" unique_id=220426947]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.94509804, 0, 1)
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_pn3xf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vmek6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gpijq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pn3xf")
+text = "  LEVELS  "
+
+[node name="Spacer2" type="Control" parent="MarginContainer/Panel/VBoxContainer" unique_id=1206900009]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="MarginContainer/Panel/VBoxContainer" unique_id=1015795304]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.94509804, 0, 1)
@@ -234,12 +244,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ab7fb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ab7fb")
 text = "QUIT_GAME"
 
-[node name="TittleLogo" type="Sprite2D" parent="MarginContainer/Panel/VBoxContainer"]
-position = Vector2(584, 35.875)
-scale = Vector2(0.34999993, 0.5745614)
-texture = ExtResource("1_bkwd7")
-
-[node name="Label" type="Label" parent="MarginContainer/Panel"]
+[node name="Label" type="Label" parent="MarginContainer/Panel" unique_id=161942457]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -254,17 +259,23 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Made by Aatish A"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=691968947]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=1554710722]
 position = Vector2(295, 543)
 scale = Vector2(2.90625, 2.90625)
 sprite_frames = SubResource("SpriteFrames_w1xia")
 autoplay = "default"
 frame_progress = 0.40237603
 
-[node name="ProcessCompleteOrb" parent="." instance=ExtResource("6_gpijq")]
+[node name="ProcessCompleteOrb" parent="." unique_id=1967772045 instance=ExtResource("6_gpijq")]
 position = Vector2(884, 544)
 
+[node name="TittleLogo" type="Sprite2D" parent="." unique_id=1805118444]
+position = Vector2(584, 98.875)
+scale = Vector2(0.34999993, 0.5745614)
+texture = ExtResource("1_bkwd7")
+
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Levels" to="." method="_on_levels_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

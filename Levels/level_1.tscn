@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=4 uid="uid://c4ua84yr7iuy"]
+[gd_scene format=4 uid="uid://c4ua84yr7iuy"]
 
+[ext_resource type="Script" uid="uid://dxr7hvlpg7etw" path="res://Scripts/levels/level_1.gd" id="1_62b6n"]
 [ext_resource type="Texture2D" uid="uid://d1if78cxy647e" path="res://Sprites/hue_n_dash tilemap.png" id="1_f4pg2"]
 [ext_resource type="PackedScene" uid="uid://e77x46bxhwqh" path="res://Scenes/Player/player.tscn" id="2_62b6n"]
 [ext_resource type="PackedScene" uid="uid://tep1slbosllp" path="res://Scenes/Wall/color_wall.tscn" id="3_rs4xw"]
@@ -22,47 +23,48 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rfktq")
 
-[node name="level1" type="Node2D"]
+[node name="level1" type="Node2D" unique_id=649792942]
 position = Vector2(4, 2)
+script = ExtResource("1_62b6n")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1775985794]
 z_index = 1
 position = Vector2(-1, 0)
 tile_map_data = PackedByteArray("AAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAD///r/AAAAAAAAAAAAAPr/AAAAAAAAAAABAPr/AAAAAAAAAAACAPr/AAAAAAAAAAADAPr/AAAAAAAAAAAEAPr/AAAAAAAAAAAFAPr/AAAAAAAAAAAGAPr/AAAAAAAAAAAHAPr/AAAAAAAAAAAIAPr/AAAAAAAAAAAJAPr/AAAAAAAAAAAKAPr/AAAAAAAAAAALAPr/AAAAAAAAAAAMAPr/AAAAAAAAAAANAPr/AAAAAAAAAAAOAPr/AAAAAAAAAAAPAPr/AAAAAAAAAAAQAPr/AAAAAAAAAAARAPr/AAAAAAAAAAASAPr/AAAAAAAAAAATAPr/AAAAAAAAAAAUAPr/AAAAAAAAAAAVAPr/AAAAAAAAAAAWAPr/AAAAAAAAAAAXAPr/AAAAAAAAAAAYAPr/AAAAAAAAAAAZAPr/AAAAAAAAAAAaAPr/AAAAAAAAAGAbAPr/AAAAAAAAAGAbAAAAAAAAAAAAAGAaAAAAAAAAAAAAAGAZAAAAAAAAAAAAAGAYAAAAAAAAAAAAAGAXAAAAAAAAAAAAAGAWAAAAAAAAAAAAAGAVAAAAAAAAAAAAAGAUAAAAAAAAAAAAAGAMAAAAAAAAAAAAAGANAAAAAAAAAAAAAGAOAAAAAAAAAAAAAGAPAAAAAAAAAAAAAGAQAAAAAAAAAAAAAGAUAAEAAAAAAAAAAGAUAAIAAAAAAAAAAGAUAAMAAAAAAAAAAGAUAAQAAAAAAAAAAGAUAAUAAAAAAAAAAGAUAAYAAAAAAAAAAGATAAYAAAAAAAAAAGASAAYAAAAAAAAAAGARAAYAAAAAAAAAAGAQAAYAAAAAAAAAAGAPAAYAAAAAAAAAAGAOAAYAAAAAAAAAAGANAAYAAAAAAAAAAGAMAAYAAAAAAAAAAGALAAYAAAAAAAAAAGAKAAYAAAAAAAAAAGAJAAYAAAAAAAAAAGAIAAYAAAAAAAAAAGAHAAYAAAAAAAAAAGAGAAYAAAAAAAAAAGAFAAYAAAAAAAAAAGAEAAYAAAAAAAAAAGADAAYAAAAAAAAAAGACAAYAAAAAAAAAAGABAAYAAAAAAAAAAGAAAAYAAAAAAAAAAGD//wYAAAAAAAAAAGD+/wYAAAAAAAAAAGD9/wYAAAAAAAAAAGD8/wYAAAAAAAAAAGD+//r/AAAAAAAAAGD9//r/AAAAAAAAAGD8//r/AAAAAAAAAGD8//v/AAAAAAAAAGD8//z/AAAAAAAAAGD8//3/AAAAAAAAAGD8//7/AAAAAAAAAGD8////AAAAAAAAAGD8/wAAAAAAAAAAAGD8/wEAAAAAAAAAAGD8/wIAAAAAAAAAAGD8/wMAAAAAAAAAAGD+/wAAAAAAAAAAAGD9/wAAAAAAAAAAAGD8/wQAAAAAAAAAAGD8/wUAAAAAAAAAAGAbAP//AAAAAAAAAAAbAP7/AAAAAAAAAAAbAP3/AAAAAAAAAAAbAPz/AAAAAAAAAAAbAPv/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_0urlm")
 
-[node name="Player" parent="." instance=ExtResource("2_62b6n")]
+[node name="Player" parent="." unique_id=1484697164 instance=ExtResource("2_62b6n")]
 position = Vector2(4, -27)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1823407241]
 
-[node name="wall" type="Node" parent="."]
+[node name="wall" type="Node" parent="." unique_id=1751675463]
 
-[node name="Red_Wall" parent="wall" instance=ExtResource("3_rs4xw")]
+[node name="Red_Wall" parent="wall" unique_id=633979777 instance=ExtResource("3_rs4xw")]
 position = Vector2(357, 3)
 
-[node name="green_Wall" parent="wall" instance=ExtResource("4_lk57d")]
+[node name="green_Wall" parent="wall" unique_id=1630019373 instance=ExtResource("4_lk57d")]
 position = Vector2(516, 12)
 rotation = 1.5707964
 
-[node name="orbs" type="Node" parent="."]
+[node name="orbs" type="Node" parent="." unique_id=1414105026]
 
-[node name="GreenOrb" parent="orbs" instance=ExtResource("5_2hkqn")]
+[node name="GreenOrb" parent="orbs" unique_id=466223060 instance=ExtResource("5_2hkqn")]
 position = Vector2(804, -41)
 
-[node name="RedOrb" parent="orbs" instance=ExtResource("6_34erp")]
+[node name="RedOrb" parent="orbs" unique_id=1263951389 instance=ExtResource("6_34erp")]
 position = Vector2(97, -44)
 
-[node name="ProcessCompleteOrb" parent="orbs" instance=ExtResource("7_k2bse")]
+[node name="ProcessCompleteOrb" parent="orbs" unique_id=321155034 instance=ExtResource("7_k2bse")]
 position = Vector2(-37, 140)
 rotation = -3.1415925
 next_level_path = "res://Levels/level_2.tscn"
 
-[node name="GameOverMenu" parent="." instance=ExtResource("8_c7pbv")]
+[node name="GameOverMenu" parent="." unique_id=2016668215 instance=ExtResource("8_c7pbv")]
 visible = false
 
-[node name="WinMenu" parent="." instance=ExtResource("9_77l7m")]
+[node name="WinMenu" parent="." unique_id=8254593 instance=ExtResource("9_77l7m")]
 visible = false
 
-[node name="Bug1" parent="." instance=ExtResource("10_1rr3k")]
+[node name="Bug1" parent="." unique_id=1152068352 instance=ExtResource("10_1rr3k")]
 position = Vector2(210, 168)

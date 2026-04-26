@@ -40,6 +40,7 @@ func _ready():
 	level_timer.start()
 	powerup_ui.hide()
 	double_jump_ui.hide()
+	$StartSound.play()
 
 func _physics_process(delta):
 
@@ -81,12 +82,19 @@ func shoot():
 		get_parent().add_child(bullet)
 		bullet.global_position =$ShootPoint.global_position
 		bullet.direction = facing_direction
+		# Randomize the pitch slightly to avoid the annoying "machine gun effect"
+		$ShootSound.pitch_scale = randf_range(0.8, 1.2)
+		
+		# Blast the laser!
+		$ShootSound.play()
 
 func grant_shoot_power():
 	can_shoot = true
 	# Start the 10-second countdown
 	$PowerupTimer.start(powerup_duration)
 	print("Weapon acquired! 10 seconds on the clock!")
+	$PowerupSound.pitch_scale = 0.8
+	$PowerupSound.play()
 	powerup_bar.max_value = powerup_duration # Set the bar's max to 10 seconds
 	powerup_bar.value = powerup_duration     # Fill the bar completely
 	powerup_ui.show()                        # Make it visible on screen
@@ -110,11 +118,14 @@ func handle_jump():
 		if is_on_floor():
 			# Normal jump from the ground
 			velocity.y = -400 
+			$JumpSound.pitch_scale = randf_range(0.9, 1.1)
+			$JumpSound.play()
 			
 		elif can_double_jump:
 			# Mid-air double jump!
 			velocity.y = -400 
-			# We put this back so they only get ONE air jump before touching the floor again!
+			$JumpSound.pitch_scale = randf_range(1.2, 1.4)
+			$JumpSound.play()
 			can_double_jump = false
 			
 	# Add this right below it!
@@ -125,6 +136,8 @@ func handle_jump():
 func grant_double_jump():
 	can_double_jump = true
 	print("Double jump charged!")
+	$PowerupSound.pitch_scale = 1.3
+	$PowerupSound.play()
 	double_jump_timer.start(double_jump_duration)
 	
 	# --- UI CODE ---
@@ -180,7 +193,7 @@ func pickup_orb(new_color : String) -> bool:
 func win(target_level: String):
 	print("Level Complete! Pausing game.")
 	get_tree().paused = true
-	
+	$VictorySound.play()
 	# Hand the path over to the menu BEFORE showing it
 	win_menu.next_level_path = target_level
 	win_menu.show()

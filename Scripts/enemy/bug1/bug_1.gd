@@ -34,7 +34,6 @@ func flip_direction():
 	sprite.flip_h = (direction == -1)
 	
 	# Flip the raycasts so they look the other way!
-	# (We multiply the X scale by -1 to mirror it)
 	raycasts.scale.x *= -1
 
 func _on_killzone_body_entered(body: Node2D) -> void:
@@ -43,4 +42,9 @@ func _on_killzone_body_entered(body: Node2D) -> void:
 		body.die()
 		
 func destroy_enemy():
+	set_physics_process(false)
+	$killzone/CollisionShape2D.set_deferred("disabled", true)
+	$CollisionShape2D.set_deferred("disabled", true)
+	$Sprite2D.play("death")
+	await $Sprite2D.animation_finished
 	queue_free()
