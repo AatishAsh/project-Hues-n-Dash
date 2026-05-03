@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ccb0e8jlunxv4" path="res://Sprites/tittle_logo.png" id="1_bkwd7"]
 [ext_resource type="Script" uid="uid://dnebrjodpmcgi" path="res://Scripts/UI/main_menu.gd" id="1_tself"]
+[ext_resource type="AudioStream" uid="uid://bt7v5f4kr8mfu" path="res://Audio/viacheslavstarostin-game-gaming-video-game-music-471936.mp3" id="2_gpijq"]
 [ext_resource type="StyleBox" uid="uid://td6ogj4pjrul" path="res://Scenes/Menu/main_menu.tres" id="3_7jtkx"]
 [ext_resource type="Texture2D" uid="uid://drn8hcjv7tpsi" path="res://Sprites/guy_idle_jump.png" id="5_ab7fb"]
 [ext_resource type="PackedScene" uid="uid://cb6wjwx36r707" path="res://Scenes/Orbs/special_orb/process_complete_orb.tscn" id="6_gpijq"]
@@ -122,6 +123,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 4
 script = ExtResource("1_tself")
+track = ExtResource("2_gpijq")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=202115303]
 z_index = -1
@@ -183,6 +185,11 @@ theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_gpijq")
 text = "X"
+
+[node name="TittleLogo" type="Sprite2D" parent="MarginContainer/Panel/TextureRect" unique_id=1805118444]
+position = Vector2(361, -71.5)
+scale = Vector2(1.4477273, 1.4477273)
+texture = ExtResource("1_bkwd7")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel" unique_id=1516596311]
 layout_mode = 1
@@ -270,11 +277,6 @@ frame_progress = 0.40237603
 
 [node name="ProcessCompleteOrb" parent="." unique_id=1967772045 instance=ExtResource("6_gpijq")]
 position = Vector2(884, 544)
-
-[node name="TittleLogo" type="Sprite2D" parent="." unique_id=1805118444]
-position = Vector2(584, 98.875)
-scale = Vector2(0.34999993, 0.5745614)
-texture = ExtResource("1_bkwd7")
 
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Levels" to="." method="_on_levels_pressed"]

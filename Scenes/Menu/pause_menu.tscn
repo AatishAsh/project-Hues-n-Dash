@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://jl5fwg8ibbli"]
+[gd_scene format=3 uid="uid://jl5fwg8ibbli"]
 
 [ext_resource type="Script" uid="uid://bg2u78y6bf00k" path="res://Scripts/UI/pause_menu.gd" id="1_6pfc5"]
 [ext_resource type="StyleBox" uid="uid://td6ogj4pjrul" path="res://Scenes/Menu/main_menu.tres" id="1_i0al5"]
+[ext_resource type="AudioStream" uid="uid://be7s1qv81x7gh" path="res://Audio/djartmusic-fun-with-my-8-bit-game-301278.mp3" id="2_jnmi5"]
+[ext_resource type="AudioStream" uid="uid://bt7v5f4kr8mfu" path="res://Audio/viacheslavstarostin-game-gaming-video-game-music-471936.mp3" id="3_mux1j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pfc5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -78,12 +80,14 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="PauseMenu" type="CanvasLayer"]
+[node name="PauseMenu" type="CanvasLayer" unique_id=1050629993]
 process_mode = 3
 layer = 10
 script = ExtResource("1_6pfc5")
+track = ExtResource("2_jnmi5")
+pause_track = ExtResource("3_mux1j")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1362185901]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -91,7 +95,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.7411765)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1300554907]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -104,7 +108,7 @@ offset_bottom = 205.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=2000855500]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -118,7 +122,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_i0al5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=333689463]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -126,11 +130,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Spacer" type="Control" parent="Panel/VBoxContainer"]
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer" unique_id=527380071]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 
-[node name="Resume" type="Button" parent="Panel/VBoxContainer"]
+[node name="Resume" type="Button" parent="Panel/VBoxContainer" unique_id=902902911]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.9529412, 0, 1)
@@ -140,11 +144,11 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_mux1j")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3hoqq")
 text = "RESUME"
 
-[node name="Spacer2" type="Control" parent="Panel/VBoxContainer"]
+[node name="Spacer2" type="Control" parent="Panel/VBoxContainer" unique_id=1721808621]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="Restart" type="Button" parent="Panel/VBoxContainer"]
+[node name="Restart" type="Button" parent="Panel/VBoxContainer" unique_id=597330732]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.9529412, 0, 1)
@@ -154,11 +158,11 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_0km3y")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_dehqv")
 text = "RESTART"
 
-[node name="Spacer3" type="Control" parent="Panel/VBoxContainer"]
+[node name="Spacer3" type="Control" parent="Panel/VBoxContainer" unique_id=1506908833]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="MainMenu" type="Button" parent="Panel/VBoxContainer"]
+[node name="MainMenu" type="Button" parent="Panel/VBoxContainer" unique_id=1485956590]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.9529412, 0, 1)
@@ -168,7 +172,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_6pfc5")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jnmi5")
 text = "MAIN_MENU"
 
-[node name="TextureRect" type="TextureRect" parent="Panel"]
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=82031152]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -180,7 +184,7 @@ offset_bottom = 61.25
 grow_horizontal = 2
 texture = SubResource("GradientTexture1D_jnmi5")
 
-[node name="pause_exe" type="Label" parent="Panel/TextureRect"]
+[node name="pause_exe" type="Label" parent="Panel/TextureRect" unique_id=359812619]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 11.0
@@ -190,7 +194,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 34
 text = "C:/PAUSE.EXE"
 
-[node name="X" type="Button" parent="Panel/TextureRect"]
+[node name="X" type="Button" parent="Panel/TextureRect" unique_id=808632177]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0

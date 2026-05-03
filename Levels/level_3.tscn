@@ -1,7 +1,9 @@
-[gd_scene load_steps=16 format=4 uid="uid://c364jtkeanw1j"]
+[gd_scene format=4 uid="uid://c364jtkeanw1j"]
 
+[ext_resource type="Script" uid="uid://dxr7hvlpg7etw" path="res://Scripts/levels/level.gd" id="1_2urlj"]
 [ext_resource type="Texture2D" uid="uid://d1if78cxy647e" path="res://Sprites/hue_n_dash tilemap.png" id="1_md4x4"]
 [ext_resource type="PackedScene" uid="uid://e77x46bxhwqh" path="res://Scenes/Player/player.tscn" id="2_1hf40"]
+[ext_resource type="AudioStream" uid="uid://be7s1qv81x7gh" path="res://Audio/djartmusic-fun-with-my-8-bit-game-301278.mp3" id="2_88iqf"]
 [ext_resource type="PackedScene" uid="uid://tep1slbosllp" path="res://Scenes/Wall/color_wall.tscn" id="3_13yca"]
 [ext_resource type="PackedScene" uid="uid://daps6vjuhmri1" path="res://Scenes/Wall/blue_wall.tscn" id="5_anjjd"]
 [ext_resource type="PackedScene" uid="uid://dcdp3cxg6i4n8" path="res://Scenes/Orbs/color orb/red_orb.tscn" id="7_r8neg"]
@@ -12,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dk7473qetueys" path="res://Scenes/Wall/yellow_wall.tscn" id="12_7cdb2"]
 [ext_resource type="PackedScene" uid="uid://bwelrcgb3vjv0" path="res://Scenes/Orbs/special_orb/jump_orb.tscn" id="12_x66yp"]
 [ext_resource type="PackedScene" uid="uid://bawbqosv8f5ri" path="res://Scenes/Orbs/color orb/yellow_orb.tscn" id="13_2urlj"]
-[ext_resource type="PackedScene" uid="uid://du7bk4qk4kt0n" path="res://Scenes/enemy/bug1/bug_1.tscn" id="13_8ve8p"]
+[ext_resource type="PackedScene" uid="uid://ct20v7yutwpe1" path="res://Scenes/enemy/bug1/yellow_bug.tscn" id="15_88iqf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rfktq"]
 texture = ExtResource("1_md4x4")
@@ -25,55 +27,60 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rfktq")
 
-[node name="level1" type="Node2D"]
+[node name="level3" type="Node2D" unique_id=52521578]
 position = Vector2(2, 2)
+script = ExtResource("1_2urlj")
+track = ExtResource("2_88iqf")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1944161223]
 z_index = 1
 position = Vector2(-1, 0)
 tile_map_data = PackedByteArray("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")
 tile_set = SubResource("TileSet_0urlm")
 
-[node name="Player" parent="." instance=ExtResource("2_1hf40")]
+[node name="Player" parent="." unique_id=1645303620 instance=ExtResource("2_1hf40")]
 position = Vector2(4, -27)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=174836508]
 
-[node name="wall" type="Node" parent="."]
+[node name="wall" type="Node" parent="." unique_id=394755267]
 
-[node name="Red_Wall" parent="wall" instance=ExtResource("3_13yca")]
+[node name="Red_Wall" parent="wall" unique_id=2033901813 instance=ExtResource("3_13yca")]
 position = Vector2(357, 3)
 
-[node name="blue_wall" parent="wall" instance=ExtResource("5_anjjd")]
+[node name="blue_wall" parent="wall" unique_id=1686214004 instance=ExtResource("5_anjjd")]
 position = Vector2(1183, 3)
 
-[node name="orbs" type="Node" parent="."]
+[node name="orbs" type="Node" parent="." unique_id=1169700931]
 
-[node name="RedOrb" parent="orbs" instance=ExtResource("7_r8neg")]
+[node name="RedOrb" parent="orbs" unique_id=1945571738 instance=ExtResource("7_r8neg")]
 position = Vector2(97, -44)
 
-[node name="ProcessCompleteOrb" parent="orbs" instance=ExtResource("8_rcyh2")]
+[node name="ProcessCompleteOrb" parent="orbs" unique_id=364584653 instance=ExtResource("8_rcyh2")]
 position = Vector2(1974, -37)
 rotation = -3.1415925
 next_level_path = "res://Levels/level_4.tscn"
 
-[node name="BlueOrb" parent="orbs" instance=ExtResource("9_341pv")]
+[node name="BlueOrb" parent="orbs" unique_id=906929065 instance=ExtResource("9_341pv")]
 position = Vector2(758, -199)
 
-[node name="GameOverMenu" parent="." instance=ExtResource("10_wnlxl")]
+[node name="GameOverMenu" parent="." unique_id=474406625 instance=ExtResource("10_wnlxl")]
 visible = false
 
-[node name="WinMenu" parent="." instance=ExtResource("11_jgaqf")]
+[node name="WinMenu" parent="." unique_id=653427129 instance=ExtResource("11_jgaqf")]
 visible = false
 
-[node name="JumpOrb" parent="." instance=ExtResource("12_x66yp")]
+[node name="JumpOrb" parent="." unique_id=959142607 instance=ExtResource("12_x66yp")]
 position = Vector2(1555, -49)
 
-[node name="Bug1" parent="." instance=ExtResource("13_8ve8p")]
-position = Vector2(778, -152)
-
-[node name="Yellow_Wall" parent="." instance=ExtResource("12_7cdb2")]
+[node name="Yellow_Wall" parent="." unique_id=2102381585 instance=ExtResource("12_7cdb2")]
 position = Vector2(1768, 3)
 
-[node name="YellowOrb" parent="." instance=ExtResource("13_2urlj")]
+[node name="YellowOrb" parent="." unique_id=180306746 instance=ExtResource("13_2urlj")]
 position = Vector2(1381, -221)
+
+[node name="YellowBug" parent="." unique_id=1627182280 instance=ExtResource("15_88iqf")]
+position = Vector2(749, -163)
+
+[node name="YellowBug2" parent="." unique_id=438403050 instance=ExtResource("15_88iqf")]
+position = Vector2(1398, -31)

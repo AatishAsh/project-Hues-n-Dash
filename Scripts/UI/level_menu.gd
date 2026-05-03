@@ -1,11 +1,10 @@
 extends Control
 
-# We only need to grab the first button to snap the keyboard focus
 @onready var level_1_button: Button = $Panel/VBoxContainer/GridContainer/Level1Button
 
 
 func _ready():
-	# Snap keyboard focus to Level 1 instantly when the menu opens
+	
 	level_1_button.grab_focus()
 
 # --- LEVEL BUTTON SIGNALS ---

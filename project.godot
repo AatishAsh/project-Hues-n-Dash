@@ -20,6 +20,10 @@ run/main_scene="uid://ba1yvibrytyhu"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="uid://b8hj57fi4pktm"
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 CrtOverlay="*res://UI/crt_overlay.tscn"

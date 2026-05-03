@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://du7bk4qk4kt0n"]
+[gd_scene format=3 uid="uid://du7bk4qk4kt0n"]
 
-[ext_resource type="Script" uid="uid://gc7a3wdac7yy" path="res://Scripts/enemy/bug1/bug_1.gd" id="1_l6pto"]
+[ext_resource type="Script" uid="uid://gc7a3wdac7yy" path="res://Scripts/enemy/bug_1.gd" id="1_l6pto"]
 [ext_resource type="Texture2D" uid="uid://d15x5d8ygmgsl" path="res://Sprites/bug_dead.png" id="2_eepel"]
 [ext_resource type="Texture2D" uid="uid://exehygqhsaht" path="res://Sprites/bug.png" id="2_gypfg"]
+[ext_resource type="AudioStream" uid="uid://cxtgimre2cc1d" path="res://Audio/lucadialessandro-arcade-fx-288597.mp3" id="4_eepel"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l6pto"]
 atlas = ExtResource("2_gypfg")
@@ -81,37 +82,42 @@ height = 52.0
 radius = 14.0
 height = 74.0
 
-[node name="Bug1" type="CharacterBody2D"]
+[node name="Bug1" type="CharacterBody2D" unique_id=1627182280]
 script = ExtResource("1_l6pto")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=599078166]
 position = Vector2(3.000001, -9.000003)
 scale = Vector2(2.7402344, 2.5942798)
 sprite_frames = SubResource("SpriteFrames_4lrbx")
 animation = &"death"
 autoplay = "Walk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=338703611]
 position = Vector2(5, 6)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_eepel")
 
-[node name="killzone" type="Area2D" parent="."]
+[node name="killzone" type="Area2D" parent="." unique_id=531819082]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=1686488035]
 position = Vector2(4, 5)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_l6pto")
 debug_color = Color(0.9929573, 0, 0.2512428, 0.41960785)
 
-[node name="Raycastes" type="Node2D" parent="."]
+[node name="Raycastes" type="Node2D" parent="." unique_id=885091525]
 
-[node name="WallCheck" type="RayCast2D" parent="Raycastes"]
+[node name="WallCheck" type="RayCast2D" parent="Raycastes" unique_id=1562157885]
 position = Vector2(1, 6)
 target_position = Vector2(31, 2)
 
-[node name="LedgeCheck" type="RayCast2D" parent="Raycastes"]
+[node name="LedgeCheck" type="RayCast2D" parent="Raycastes" unique_id=833841686]
 position = Vector2(1, 6)
 target_position = Vector2(30, 22)
+
+[node name="DieSound" type="AudioStreamPlayer" parent="." unique_id=171298180]
+stream = ExtResource("4_eepel")
+volume_db = 2.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="killzone" to="." method="_on_killzone_body_entered"]

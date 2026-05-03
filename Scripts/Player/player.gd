@@ -82,20 +82,18 @@ func shoot():
 		get_parent().add_child(bullet)
 		bullet.global_position =$ShootPoint.global_position
 		bullet.direction = facing_direction
-		# Randomize the pitch slightly to avoid the annoying "machine gun effect"
+		# Randomize the pitch 
 		$ShootSound.pitch_scale = randf_range(0.8, 1.2)
-		
-		# Blast the laser!
 		$ShootSound.play()
 
 func grant_shoot_power():
 	can_shoot = true
-	# Start the 10-second countdown
+	# Start the countdown
 	$PowerupTimer.start(powerup_duration)
 	print("Weapon acquired! 10 seconds on the clock!")
 	$PowerupSound.pitch_scale = 0.8
 	$PowerupSound.play()
-	powerup_bar.max_value = powerup_duration # Set the bar's max to 10 seconds
+	powerup_bar.max_value = powerup_duration # Set the bar's max 
 	powerup_bar.value = powerup_duration     # Fill the bar completely
 	powerup_ui.show()                        # Make it visible on screen
 
@@ -122,17 +120,16 @@ func handle_jump():
 			$JumpSound.play()
 			
 		elif can_double_jump:
-			# Mid-air double jump!
+			# Mid-air double jump
 			velocity.y = -400 
 			$JumpSound.pitch_scale = randf_range(1.2, 1.4)
 			$JumpSound.play()
 			can_double_jump = false
 			
-	# Add this right below it!
 	if not double_jump_timer.is_stopped():
 		double_jump_bar.value = double_jump_timer.time_left
 		
-# The orb will call this when touched
+
 func grant_double_jump():
 	can_double_jump = true
 	print("Double jump charged!")
@@ -140,13 +137,18 @@ func grant_double_jump():
 	$PowerupSound.play()
 	double_jump_timer.start(double_jump_duration)
 	
-	# --- UI CODE ---
+	# --- UI ---
 	double_jump_bar.max_value = double_jump_duration
 	double_jump_bar.value = double_jump_duration
 	double_jump_ui.show()
 
 func _on_double_jump_timer_timeout() -> void:
 	double_jump_ui.hide()
+
+func bounce(val:int):
+	velocity.y = val
+	$JumpSound.pitch_scale = randf_range(0.9, 1.1)
+	$JumpSound.play()
 
 func update_state():
 
@@ -155,7 +157,7 @@ func update_state():
 
 	elif velocity.x != 0:
 		state = "run"
-
+		
 	else:
 		state = "idle"
 
@@ -163,12 +165,12 @@ func update_state():
 func update_animation():
 	var anim = color + "_" + state
 	
-	# Check if the specific animation (e.g., "red_run") exists
+	# Check if the specific animation exists
 	if sprite.sprite_frames.has_animation(anim):
 		if sprite.animation != anim:
 			sprite.play(anim)
 	else:
-		# FALLBACK: If "red_run" is missing, try to at least play "red_idle"
+		# FALLBACK: If "red_run" is missing,play "red_idle"
 		var fallback = color + "_idle"
 		if sprite.sprite_frames.has_animation(fallback):
 			if sprite.animation != fallback:
@@ -180,11 +182,12 @@ func update_animation():
 
 # called by orb when picked
 func pickup_orb(new_color : String) -> bool:
-	# Optional: Prevent picking up the exact same color you are already holding
+	#Prevent picking up the exact same color you are already holding
 	if carrying_item and color == new_color:
 		return false
-
 	carrying_item = true
+	$PickupSound.pitch_scale = 1.5
+	$PickupSound.play()
 	color = new_color
 	update_animation()
 	

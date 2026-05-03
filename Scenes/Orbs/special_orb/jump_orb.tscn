@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwelrcgb3vjv0"]
+[gd_scene format=3 uid="uid://bwelrcgb3vjv0"]
 
 [ext_resource type="Script" uid="uid://bm5whioc7jogu" path="res://Scripts/process_complete_orb/jump_orb.gd" id="1_4xy0f"]
 [ext_resource type="Texture2D" uid="uid://rwmmjrj2n1xg" path="res://Sprites/special_orbs.png" id="2_4xy0f"]
@@ -7,18 +7,18 @@
 radius = 19.0
 height = 40.0
 
-[node name="JumpOrb" type="Area2D"]
+[node name="JumpOrb" type="Area2D" unique_id=725059304]
 script = ExtResource("1_4xy0f")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1474162141]
 texture = ExtResource("2_4xy0f")
 region_enabled = true
 region_rect = Rect2(173, 44, 38, 40)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1447023619]
 shape = SubResource("CapsuleShape2D_hcsrj")
 
-[node name="RespawnTimer" type="Timer" parent="."]
+[node name="RespawnTimer" type="Timer" parent="." unique_id=687480815]
 wait_time = 2.0
 one_shot = true
 

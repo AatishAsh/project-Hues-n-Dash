@@ -7,8 +7,7 @@ func _on_body_entered(body):
 		
 		# Condition 1: The player has the correct color
 		if body.color == required_color:
-			# We don't destroy the wall. We just do nothing and let them pass!
-			print("Access granted! Safe passage.")
+			print("Access granted")
 			
 		# Condition 2: The player has the wrong color (or default)
 		else:

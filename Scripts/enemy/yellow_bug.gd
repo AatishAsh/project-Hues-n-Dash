@@ -2,8 +2,7 @@ extends CharacterBody2D
 
 @export var speed := 100
 @export var gravity := 900
-
-# 1 is moving right, -1 is moving left
+var is_dying = false
 var direction := 1 
 
 @onready var raycasts = $Raycastes
@@ -12,16 +11,15 @@ var direction := 1
 @onready var sprite = $Sprite2D
 
 func _physics_process(delta):
-	# 1. Apply Gravity
+	#Apply Gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# 2. Check for ledges or walls
-	# If the ledge check finds NO floor, OR the wall check hits a wall...
+	# Check for ledges or walls
 	if not ledge_check.is_colliding() or wall_check.is_colliding():
 		flip_direction()
 
-	# 3. Apply Movement
+	#Apply Movement
 	velocity.x = direction * speed
 	
 	move_and_slide()
@@ -37,14 +35,27 @@ func flip_direction():
 	raycasts.scale.x *= -1
 
 func _on_killzone_body_entered(body: Node2D) -> void:
-	if body.has_method("die"):
+	if is_dying: return
+	if body.has_method("die") and not $Sprite2D.animation == "death":
 		print("Enemy caught the player!")
 		body.die()
-		
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	if is_dying: return # Prevent multiple hits
+	if body.has_method("die"):
+		is_dying = true # Mark as dead instantly
+		print("the player Stomped the enemy!")
+		body.bounce(-300)
+		destroy_enemy()
+
 func destroy_enemy():
+	$DieSound.pitch_scale = randf_range(0.8, 1.2)
+	$DieSound.play()
 	set_physics_process(false)
 	$killzone/CollisionShape2D.set_deferred("disabled", true)
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Sprite2D.play("death")
 	await $Sprite2D.animation_finished
 	queue_free()
+	
