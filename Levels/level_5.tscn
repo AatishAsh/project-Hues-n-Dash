@@ -107,9 +107,6 @@ position = Vector2(-197, -23)
 [node name="YellowBug" parent="enemy" unique_id=1627182280 instance=ExtResource("18_k35fw")]
 position = Vector2(619, -216)
 
-[node name="YellowBug2" parent="enemy" unique_id=88197071 instance=ExtResource("18_k35fw")]
-position = Vector2(-27, -216)
-
 [node name="Player" parent="." unique_id=1062678134 instance=ExtResource("13_308mu")]
 position = Vector2(143, -9)
 

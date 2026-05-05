@@ -35,7 +35,7 @@ script = ExtResource("1_0y6jj")
 track = ExtResource("2_vulay")
 
 [node name="Player" parent="." unique_id=1013157304 instance=ExtResource("12_d7ns6")]
-position = Vector2(216, -423)
+position = Vector2(67, -15)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1027445168]
 
